@@ -1,8 +1,13 @@
 <?php
 class Controller{
+
     public $content;
     public $error;
 
+
+    public function __construct(){
+
+    }
 
     public function render($file,$arr=[]){
         $render_view='';

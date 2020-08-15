@@ -52,42 +52,33 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-
-    <!-- Messaeg Wrapper. Contains messaege error and success -->
-    <!--
-    <div class="message-wrap content-wrap content-wrapper">
-        <section class="content-header">
-            <div class="alert alert-success">
-                <?php echo $this->error?>
-                <?php
-                    if (isset($_SESSION['error'])){
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                    }
-                if (isset($_SESSION['success'])){
-                    echo $_SESSION['success'];
-                    unset($_SESSION['success']);
-                }
-                ?>
-
-            </div>
-        </section>
-    </div>
-    -->
-
-
-                <?php //echo $this->error?>
-                <?php
-                if (isset($_SESSION['error'])){
+        <section class="content">
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger">
+                    <?php
                     echo $_SESSION['error'];
                     unset($_SESSION['error']);
-                }
-                if (isset($_SESSION['success'])){
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($this->error)): ?>
+                <div class="alert alert-danger">
+                    <?php
+                    echo $this->error;
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="alert alert-success">
+                    <?php
                     echo $_SESSION['success'];
                     unset($_SESSION['success']);
-                }
-                ?>
-
+                    ?>
+                </div>
+            <?php endif; ?>
+        </section>
         <section class="content">
             <?php echo $this->content?>
 
@@ -131,5 +122,6 @@
 <script src="assets/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="assets/js/pages/dashboard.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

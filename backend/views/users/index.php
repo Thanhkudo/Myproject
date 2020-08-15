@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h3>Employees List</h3>
+            <h3>Danh sách User</h3>
         </div>
         <div class="col text-right">
-            <button class="btn btn-success"><a href="#">+ ADD New Employees</a></button>
+            <button class="btn btn-success"><a href="?controller=users&action=create"><i class="fa fa-plus"></i> Thêm mới</a></button>
         </div>
     </div>
     <br>

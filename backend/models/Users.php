@@ -15,7 +15,20 @@ class Users extends Model {
 
 
     public function insert(){
-
+        $insert=$this->conn->prepare("INSERT INTO users(`username`,`password`,`fullname`,`avatar`,`phone`,`address`,`email`,`gender`,`vip`) 
+        VALUES (:username,:password,:fullname,:avatar,:phone,:address,:email,:gender,:vip)");
+        $arr_insert=[
+            ':username'=>$this->username,
+            ':password'=>$this->password,
+            ':fullname'=>$this->fullname,
+            ':avatar'=>$this->avatar,
+            ':phone'=>$this->phone,
+            ':address'=>$this->address,
+            ':email'=>$this->email,
+            ':gender'=>$this->gender,
+            ':vip'=>$this->vip,
+        ];
+        return $insert->execute($arr_insert);
     }
     public function update(){
 
