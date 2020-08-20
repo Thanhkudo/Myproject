@@ -1,69 +1,77 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="../../assets/css/style_login.css">
-<!------ Include the above in your HEAD tag ---------->
+<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-5 col-md-offset-4 col-sm-7 col-sm-offset-3">
+    <div class="panel panel-primary" >
+        <div class="panel-heading">
+            <div class="panel-title text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</div>
+        </div>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login Page</title>
-    <!--Made with love by Mutiullah Samim -->
-
-    <!--Bootsrap 4 CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-    <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>Sign In</h3>
-                <div class="d-flex justify-content-end social_icon">
-                    <span><i class="fab fa-facebook-square"></i></span>
-                    <span><i class="fab fa-google-plus-square"></i></span>
-                    <span><i class="fab fa-twitter-square"></i></span>
+        <div style="padding-top:30px" class="panel-body" >
+            <?php if (!empty($this->error)):?>
+                <div class="alert alert-danger text-center">
+                    <?php echo $this->error?>
                 </div>
-            </div>
-            <div class="card-body">
-                <form>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <?php endif;?>
+
+            <?php if (isset($_SESSION['error'])):?>
+                <div class="alert alert-danger">
+                    <?php echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                    ?>
+                </div>
+            <?php endif;?>
+
+            <?php if (isset($_SESSION['success'])):?>
+                <div class="alert alert-success text-center">
+                    <?php echo $_SESSION['success'];
+                    unset($_SESSION['success']);
+                    ?>
+                </div>
+            <?php endif;?>
+
+            <form id="loginform" class="form-horizontal" role="form" action="" method="post">
+
+                <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="login-username" type="text" class="form-control input-sm" name="username" value="" placeholder="username ">
+                </div>
+
+                <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="login-password" type="password" class="form-control input-sm" name="password" placeholder="password">
+                </div>
+
+
+
+                <div class="input-group col-sm-offset-3 col-sm-7">
+                    <div class="checkbox">
+                        <label>
+                            <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                        </label>
+                    </div>
+                </div>
+
+
+                <div style="margin-top:10px" class="form-group">
+                    <!-- Button -->
+
+                    <div class="col-sm-12 controls text-center">
+                        <input type="submit" class="btn btn-primary btn-sm" value="Sign In" name="submit">
+                        <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>-->
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+
+                            <a href="?controller=login&action=forgot">
+                                Forgot your password?
+                            </a>
                         </div>
-                        <input type="text" class="form-control" placeholder="username">
-
                     </div>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="password">
-                    </div>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Remember Me
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Login" class="btn float-right login_btn">
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    Don't have an account?<a href="#">Sign Up</a>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
-</body>
-</html>

@@ -1,3 +1,14 @@
+<?php
+    $id='';
+    $fullname='';
+    $avatar='';
+    if (isset($_SESSION['user_main']))
+    {
+        $id=$_SESSION['user_main']['id'];
+        $fullname=$_SESSION['user_main']['fullname'];
+        $avatar=$_SESSION['user_main']['avatar'];
+    }
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
@@ -14,21 +25,21 @@
                         <div class="user-panel mt-2 pb-2 mb-2 d-flex">
                         </div>
                         <a href="#" class="nav-link">
-                            <img src="assets/images/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" width="30px">
+                            <img src="assets/images/users/<?php echo $avatar?>" class="img-circle elevation-1 " alt="User Image" width="30px">
                             <p>
-                                Thanh Kudo
+                                <?php echo $fullname?>
                             </p>
                         </a>
 
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="?controller=users&action=detail&id=<?php echo $id?>" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Profile</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="?controller=login&action=logout" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Sign Out</p>
                                 </a>

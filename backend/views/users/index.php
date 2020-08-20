@@ -3,8 +3,8 @@
         <div class="col">
             <h3>Danh sách User</h3>
         </div>
-        <div class="col text-right">
-            <button class="btn btn-success"><a href="?controller=users&action=create"><i class="fa fa-plus"></i> Thêm mới</a></button>
+        <div class="col text-right" >
+            <button class="btn btn-success"><a href="?controller=users&action=create" style="text-decoration: none; color: #fffFff;display: block"><i class="fa fa-plus"></i> Thêm mới</a></button>
         </div>
     </div>
     <br>
@@ -20,7 +20,7 @@
                 <th scope="col">Address</th>
                 <th scope="col">Vip</th>
                 <th scope="col">Action</th>
-                <?php foreach ($select as $val):?>
+                <?php foreach ($select_user as $val):?>
             </tr>
                 <td scope="col"><?php echo $val['id']?></td>
                 <td scope="col"><?php echo $val['username']?></td>
@@ -32,9 +32,9 @@
                 <td scope="col"><?php echo ($val['vip']==0)?"Member":"Admin"?></td>
 
                 <td>
-                <a href="view.php?id=<?php echo $row['0']?>"><i class="far fa-eye"></i></a>
-                <a href="update.php?id=<?php echo $row['0']?>"><i class="fas fa-pencil-alt"></i></a>
-                <a href="delete.php?id=<?php echo $row['0']?>" onclick="return confirm('Bạn chắc chắn muốn xóa !')"><i class="far fa-trash-alt"></i></a>
+                <a href="?controller=users&action=detail&id=<?php echo $val['id']?>"><i class="far fa-eye"></i></a>
+                <a href="?controller=users&action=update&id=<?php echo $val['id']?>"><i class="fas fa-pencil-alt"></i></a>
+                <a href="?controller=users&action=delete&id=<?php echo $val['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa !')"><i class="far fa-trash-alt"></i></a>
             </td>
             </tr>
             <?php endforeach;?>

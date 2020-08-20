@@ -1,14 +1,14 @@
 <?php
 require_once "models/Category.php";
-class CategoryController{
+class CategoryController extends Controller {
     public $content;
     public $error;
 
     public function index(){
         $category_model=new Category();
-        $select = $category_model->select_all();
+        $select =
         $arr_view = [
-            'select' =>$select
+
         ];
         $this->content = $this->render('views/category/index.php',$arr_view);
         require_once 'views/layouts/main.php';
@@ -53,13 +53,5 @@ class CategoryController{
         $this->content = "Trang delete";
         require_once 'views/layouts/main.php';
 
-    }
-    public function render($file,$arr=[]){
-        $render_view='';
-        extract($arr);
-        ob_start();
-        require_once "$file";
-        $render_view = ob_get_clean();
-        return $render_view;
     }
 }

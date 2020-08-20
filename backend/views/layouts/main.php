@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>AdminLTE  | <?php echo $this->title_page?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -53,6 +53,7 @@
             </div><!-- /.container-fluid -->
         </div>
         <section class="content">
+            <div class="container">
             <?php if (isset($_SESSION['error'])): ?>
                 <div class="alert alert-danger">
                     <?php
@@ -78,9 +79,21 @@
                     ?>
                 </div>
             <?php endif; ?>
+            </div>
         </section>
         <section class="content">
             <?php echo $this->content?>
+            <?php
+            echo "<pre>";
+            print_r($_SESSION['user_main']);
+            echo "</pre>";
+            echo "<pre>";
+            print_r($select_user);
+            echo "</pre>";
+            echo "<pre>";
+            print_r($select_update);
+            echo "</pre>";
+            ?>
 
         </section>
     </div>

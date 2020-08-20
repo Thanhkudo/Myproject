@@ -54,7 +54,7 @@
                 <option value="1" <?php echo $admin?>>Admin</option>
             </select><br>
 
-            <input type="submit" name="submit" id="submit" value="Thêm" class="btn btn-primary">
+            <input type="submit" name="submit" id="submit" value="Create" class="btn btn-primary">
             <button class="btn btn-light"><a href="?controller=users">Cancel</a></button>
         </form>
     </div>
