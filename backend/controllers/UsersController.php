@@ -18,12 +18,15 @@ class UsersController extends Controller {
             $password = $_POST['password'];
             $password_confirm = $_POST['password_confirm'];
             $fullname = $_POST['fullname'];
+            $avatar= $_FILES['avatar'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
             $gender = $_POST['gender'];
             $vip = $_POST['vip'];
-
+            echo "<pre>";
+            print_r($_FILES);
+            echo "</pre>";
             //validate
             if (empty($username)){
                 $this->error="Username không được để trống !";
@@ -41,7 +44,7 @@ class UsersController extends Controller {
                 $this->error="Lỗi định dạng Phone !";
             }elseif (!empty($email)&& !filter_var($email,FILTER_VALIDATE_EMAIL)){
                 $this->error="Lỗi định dạng email !";
-            }elseif ($_FILES['avatar']['error']==0){
+            }elseif ($avatar['error']==0){
                 $duoifile = pathinfo($_FILES['avatar']['name'],PATHINFO_EXTENSION);
                 strtolower($duoifile); //chuyen chu tương
                 $arr_duoifile=['png','jpg','jbeg','gif'];
@@ -53,12 +56,10 @@ class UsersController extends Controller {
                     $this->error="File Upload quá lớn !";
                 }
             }
+            $filename='';
             if (empty($this->error)){
-                if ($_FILES['avatar']['error']==0){
-                    $filename='';
-
+                if ($avatar['error']==0){
                     $dir =__DIR__."/../assets/images/users";
-
                     if (!file_exists($dir)){
                         mkdir($dir);
                     }
@@ -109,6 +110,7 @@ class UsersController extends Controller {
             $password = $_POST['password'];
             $password_confirm = $_POST['password_confirm'];
             $fullname = $_POST['fullname'];
+            $avatar = $_FILES['avatar'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
@@ -127,7 +129,7 @@ class UsersController extends Controller {
                 $this->error="Lỗi định dạng Phone !";
             }elseif (!empty($email)&& !filter_var($email,FILTER_VALIDATE_EMAIL)){
                 $this->error="Lỗi định dạng email !";
-            }elseif ($_FILES['avatar']['error']==0){
+            }elseif ($avatar['error']==0){
                 $duoifile = pathinfo($_FILES['avatar']['name'],PATHINFO_EXTENSION);
                 strtolower($duoifile); //chuyen chu tương
                 $arr_duoifile=['png','jpg','jbeg','gif'];
@@ -140,9 +142,8 @@ class UsersController extends Controller {
                 }
             }
             if (empty($this->error)){
+                $filename=$select_update['avatar'];
                 if ($_FILES['avatar']['error']==0){
-                    $filename=$select_update['avatar'];
-
                     $dir =__DIR__."/../assets/images/users";
                     @unlink(__DIR__."/../assets/images/users/".$filename);
                     if (!file_exists($dir)){

@@ -39,6 +39,7 @@
                 <?php
                 $member='';
                 $admin='';
+                $supadmin='';
                 if (isset($_POST['vip'])){
                     switch ($_POST['vip']){
                         case 0:
@@ -47,11 +48,15 @@
                         case 1:
                             $admin = "selected";
                             break;
+                        case 2:
+                            $supadmin = "selected";
+                            break;
                     }
                 }
                 ?>
                 <option value="0" <?php echo $member?>>Thành Viên</option>
                 <option value="1" <?php echo $admin?>>Admin</option>
+                <option value="2" <?php echo $supadmin?>>Super Admin</option>
             </select><br>
 
             <input type="submit" name="submit" id="submit" value="Create" class="btn btn-primary">

@@ -2,11 +2,14 @@
     $id='';
     $fullname='';
     $avatar='';
+    $vip='';
     if (isset($_SESSION['user_main']))
     {
-        $id=$_SESSION['user_main']['id'];
-        $fullname=$_SESSION['user_main']['fullname'];
-        $avatar=$_SESSION['user_main']['avatar'];
+        $id = $_SESSION['user_main']['id'];
+        $fullname = $_SESSION['user_main']['fullname'];
+        $avatar = $_SESSION['user_main']['avatar'];
+        $vip = $_SESSION['user_main']['vip'];
+
     }
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">

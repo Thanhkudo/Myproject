@@ -1,7 +1,7 @@
-<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-5 col-md-offset-4 col-sm-7 col-sm-offset-3">
+<div id="resetbox" style="margin-top:50px;" class="mainbox col-md-5 col-md-offset-4 col-sm-7 col-sm-offset-3">
     <div class="panel panel-primary" >
         <div class="panel-heading">
-            <div class="panel-title text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</div>
+            <div class="panel-title text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> Reset your password</div>
         </div>
 
         <div style="padding-top:30px" class="panel-body" >
@@ -27,49 +27,30 @@
                 </div>
             <?php endif;?>
 
-            <form id="loginform" class="form-horizontal" role="form" action="" method="post">
+            <form id="resetform" class="form-horizontal" role="form" action="" method="post">
 
                 <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="login-username" type="text" class="form-control input-sm" name="username" value="" placeholder="username ">
+                    <input id="login-username" type="text" class="form-control input-sm" disabled name="name" value="<?php echo isset($_GET['name']) ? $_GET['name']:'';?>" placeholder="username ">
                 </div>
 
                 <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="login-password" type="password" class="form-control input-sm" name="password" placeholder="password">
+                    <input id="login-password" type="password" class="form-control input-sm" name="pass" placeholder="password">
                 </div>
 
-
-
-                <div class="input-group col-sm-offset-3 col-sm-7">
-                    <div class="checkbox">
-                        <label>
-                            <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                        </label>
-                    </div>
+                <div style="margin-bottom: 25px" class="input-group col-sm-offset-3 col-sm-7">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="login-password" type="password" class="form-control input-sm" name="cf_pass" placeholder="Confirm password">
                 </div>
-
 
                 <div style="margin-top:10px" class="form-group">
                     <!-- Button -->
-
                     <div class="col-sm-12 controls text-center">
-                        <button type="submit" class="btn btn-primary btn-sm" name="submit"><i class="fa fa-sign-in" aria-hidden="true"> </i>Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-sm" name="submit"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Save </button>
                         <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>-->
-
                     </div>
-                </div>
 
-
-                <div class="form-group">
-                    <div class="col-md-12 control">
-                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-
-                            <a href="?controller=login&action=forgot">
-                                Forgot your password?
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </form>
         </div>

@@ -46,6 +46,14 @@ class Users extends Model {
         return $update->execute($arr_update);
 
     }
+    public function reset($name){
+        $update =$this->conn->prepare("UPDATE `users` SET `password`=:password WHERE username='$name'");
+        $arr_update=[
+            ':password'=>$this->password,
+        ];
+        return $update->execute($arr_update);
+
+    }
     public function select_all(){
         $select = $this->conn->prepare("SELECT * FROM users ORDER BY id DESC ");
         $select ->execute();
@@ -85,7 +93,7 @@ class Users extends Model {
         $delete = $this->conn->prepare("DELETE FROM users WHERE id=$id");
         return  $delete ->execute();
     }
-    /*public function getusser($user){
+    public function getuser($user){
         $select = $this->conn->prepare("SELECT * FROM users WHERE username=:username");
         $arr_select=[
           ':username'=>$user
@@ -94,5 +102,5 @@ class Users extends Model {
         $is_select = $select->fetch(PDO::FETCH_ASSOC);
         return $is_select;
 
-    }*/
+    }
 }

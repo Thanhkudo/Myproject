@@ -17,8 +17,10 @@
 
             <label for="avatar">Avatar </label>
             <input type="file" name="avatar" id="avatar" class="form-control" value="">
-            <img src="#" alt="" id="img-preview" style="display: none" width="150px" height="100px"><br>
-
+            <?php if (!empty($select_update['avatar'])):?>
+                <img height="100px" src="assets/images/users/<?php echo $select_update['avatar'] ?>"/> -->
+            <?php endif;?>
+                <img height="100px" src="#" id="img-preview" style="display: none"><br>
             <label for="email">Email </label>
             <input type="text" name="email" id="email" class="form-control" value="<?php echo isset($_POST['email'])?$_POST['email']:$select_update['email']?>">
 
@@ -37,13 +39,19 @@
             <label for="vip">Quyền quản trị</label><br>
             <select  name="vip" id="vip" class="form-control">
                 <?php
-                if ($select_update['vip']==0){
-                    $member='selected';
-                    $admin='';
-                }
-                else{
-                    $member='';
-                    $admin='selected';
+                $admin='';
+                $member='';
+                $supadmin='';
+                switch ($select_update['vip']){
+                    case 0:
+                        $member='selected';
+                        break;
+                    case 1:
+                        $admin = "selected";
+                        break;
+                    case 2:
+                        $supadmin = "selected";
+                        break;
                 }
 
                 if (isset($_POST['vip'])){
@@ -54,11 +62,15 @@
                         case 1:
                             $admin = "selected";
                             break;
+                        case 2:
+                            $supadmin = "selected";
+                            break;
                     }
                 }
                 ?>
                 <option value="0" selected <?php echo $member?>>Thành Viên</option>
                 <option value="1" <?php echo $admin?>>Admin</option>
+                <option value="2" <?php echo $supadmin?>>Super Admin</option>
             </select><br>
 
             <input type="submit" name="submit" id="submit" value="Save" class="btn btn-primary">

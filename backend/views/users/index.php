@@ -27,15 +27,31 @@
                 <td scope="col"><?php echo $val['fullname']?></td>
                 <td scope="col"><?php echo $val['phone']?></td>
                 <td scope="col"><?php echo $val['email']?></td>
-                <td scope="col"><?php echo ($val['gender']==0)?"Nữ":"Nam"; ?></td>
+                <td scope="col" ><?php echo ($val['gender']==0)?"Nữ":"Nam"; ?></td>
                 <td scope="col"><?php echo $val['address']?></td>
-                <td scope="col"><?php echo ($val['vip']==0)?"Member":"Admin"?></td>
+                <td scope="col">
+                    <?php
+                        switch ($val['vip']){
+                            case 0:
+                                echo "Member";
+                                break;
+                            case 1:
+                                echo "Admin";
+                                break;
+                            case 2:
+                                echo "Super Admin";
+                                break;
+                        }
+                    ?>
+                </td>
 
-                <td>
+                <td class="text-center">
                 <a href="?controller=users&action=detail&id=<?php echo $val['id']?>"><i class="far fa-eye"></i></a>
-                <a href="?controller=users&action=update&id=<?php echo $val['id']?>"><i class="fas fa-pencil-alt"></i></a>
-                <a href="?controller=users&action=delete&id=<?php echo $val['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa !')"><i class="far fa-trash-alt"></i></a>
-            </td>
+                    <?php if ($_SESSION['user_main']['vip']==2): ?>
+                    <a href="?controller=users&action=update&id=<?php echo $val['id']?>"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="?controller=users&action=delete&id=<?php echo $val['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa !')"><i class="far fa-trash-alt"></i></a>
+                    <?php endif;?>
+                </td>
             </tr>
             <?php endforeach;?>
         </table>
