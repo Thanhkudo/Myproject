@@ -54,8 +54,15 @@ class Users extends Model {
         return $update->execute($arr_update);
 
     }
-    public function select_all(){
-        $select = $this->conn->prepare("SELECT * FROM users ORDER BY id DESC ");
+    public function select_all($param){
+
+        $arr_search = " WHERE TRUE";
+        if (isset($param['name'])&&!empty($param['name'])){
+            $name = $param['name'];
+            $arr_search .= " AND username LIKE '%$name%' ";
+        }
+        $select = $this->conn->prepare("SELECT * FROM users $arr_search ORDER BY id DESC ");
+
         $select ->execute();
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;

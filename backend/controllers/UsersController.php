@@ -5,8 +5,15 @@ class UsersController extends Controller {
 
     public function index(){
         $this->title_page="Users";
+        $param=[];
+        if (isset($_GET['search'])){
+            $name = $_GET['name'];
+            $param=[
+                'name'=>$name,
+            ];
+        }
         $user_model=new Users();
-        $select_user = $user_model->select_all();
+        $select_user = $user_model->select_all($param);
         $this->content = $this->render('views/users/index.php',['select_user'=>$select_user]);
         require_once 'views/layouts/main.php';
     }

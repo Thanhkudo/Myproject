@@ -13,11 +13,13 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <form class="form-inline ml-3" method="get" action="">
         <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <input type="hidden" name="controller" value="<?php echo isset($_GET['controller'])?$_GET['controller']:'index';?>">
+            <input type="hidden" name="action" value="<?php echo isset($_GET['action'])?$_GET['action']:'index'?>">
+            <input class="form-control form-control-navbar" type="text" name="name" value="" placeholder="Search" aria-label="Search">
             <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
+                <button class="btn btn-navbar" type="submit" name="search">
                     <i class="fas fa-search"></i>
                 </button>
             </div>

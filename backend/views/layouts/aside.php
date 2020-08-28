@@ -54,16 +54,20 @@
 
 
         <!-- SidebarSearch Form -->
+        <form action="" method="get">
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <input type="hidden" name="controller" value="<?php echo isset($_GET['controller'])?$_GET['controller']:'index';?>">
+                <input type="hidden" name="action" value="<?php echo isset($_GET['action'])?$_GET['action']:'index'?>">
+                <input class="form-control form-control-sidebar" type="text" name="name" placeholder="Search" aria-label="Search">
                 <div class="input-group-append">
-                    <button class="btn btn-sidebar">
+                    <button class="btn btn-sidebar" type="submit" name="search">
                         <i class="fas fa-search fa-fw"></i>
                     </button>
                 </div>
             </div>
         </div>
+        </form>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">

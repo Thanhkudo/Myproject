@@ -54,7 +54,7 @@
                     <!-- Button -->
 
                     <div class="col-sm-12 controls text-center">
-                        <button type="submit" class="btn btn-primary btn-sm" name="submit"><i class="fa fa-sign-in" aria-hidden="true"> </i>Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-sm" name="submit"><i class="fa fa-sign-in" aria-hidden="true"> </i>  Sign In</button>
                         <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>-->
 
                     </div>

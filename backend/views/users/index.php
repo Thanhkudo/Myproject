@@ -3,6 +3,7 @@
         <div class="col">
             <h3>Danh sách User</h3>
         </div>
+
         <div class="col text-right" >
             <button class="btn btn-success"><a href="?controller=users&action=create" style="text-decoration: none; color: #fffFff;display: block"><i class="fa fa-plus"></i> Thêm mới</a></button>
         </div>
@@ -20,8 +21,9 @@
                 <th scope="col">Address</th>
                 <th scope="col">Vip</th>
                 <th scope="col">Action</th>
-                <?php foreach ($select_user as $val):?>
             </tr>
+            <?php foreach ($select_user as $val):?>
+            <tr>
                 <td scope="col"><?php echo $val['id']?></td>
                 <td scope="col"><?php echo $val['username']?></td>
                 <td scope="col"><?php echo $val['fullname']?></td>

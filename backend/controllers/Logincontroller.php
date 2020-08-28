@@ -30,7 +30,7 @@ class LoginController{
                 $this->error="Bạn không đủ thầm quyền vào trang này!";
             }
             if (empty($this->error)){
-                $_SESSION['success']='Đăng nhập thành công';
+                $_SESSION['success']="Xin chào $username";
                 $_SESSION['user_main']=$user_main;
                 header('Location:index.php');
                 exit();
