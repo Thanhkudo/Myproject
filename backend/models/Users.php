@@ -14,6 +14,16 @@ class Users extends Model {
     public $vip;
     public $created;
 
+    public $search;
+
+    public function __construct(){
+        parent::__construct();
+        if (isset($_GET['name'])&&!empty($_GET['name'])){
+            $name=$_GET['name'];
+            $name=addslashes($name);
+            $this->search.=" AND `username` LIKE '%$name%'";
+        }
+    }
 
     public function insert(){
         $insert=$this->conn->prepare("INSERT INTO users(`username`,`password`,`fullname`,`avatar`,`phone`,`address`,`email`,`gender`,`vip`) 
@@ -54,7 +64,7 @@ class Users extends Model {
         return $update->execute($arr_update);
 
     }
-    public function select_all($param){
+    public function select_all($params=[]){
 
         $arr_search = " WHERE TRUE";
         if (isset($param['name'])&&!empty($param['name'])){
@@ -63,6 +73,15 @@ class Users extends Model {
         }
         $select = $this->conn->prepare("SELECT * FROM users $arr_search ORDER BY id DESC ");
 
+        $select ->execute();
+        $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
+        return $is_select;
+    }
+    public function select_allpagination($params=[]){
+        $limit = $params['limit'];
+        $page =  isset($params['page'])?$params['page']:'1';
+        $start = ($page - 1) * $limit;
+        $select = $this->conn->prepare("SELECT * FROM users WHERE TRUE $this->search LIMIT $start, $limit" );
         $select ->execute();
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;
@@ -108,6 +127,13 @@ class Users extends Model {
         $select ->execute($arr_select);
         $is_select = $select->fetch(PDO::FETCH_ASSOC);
         return $is_select;
+
+    }
+    public function getCount(){
+        $select = $this->conn->prepare("SELECT COUNT(id) AS Count FROM users");
+        $select ->execute();
+        return $select->fetchColumn();
+
 
     }
 }

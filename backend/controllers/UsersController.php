@@ -1,20 +1,34 @@
 <?php
 require_once 'controllers/Controller.php';
 require_once 'models/Users.php';
+require_once 'models/Pagination.php';
 class UsersController extends Controller {
 
     public function index(){
         $this->title_page="Users";
-        $param=[];
-        if (isset($_GET['search'])){
-            $name = $_GET['name'];
-            $param=[
-                'name'=>$name,
-            ];
-        }
         $user_model=new Users();
-        $select_user = $user_model->select_all($param);
-        $this->content = $this->render('views/users/index.php',['select_user'=>$select_user]);
+        $total = $user_model->getCount();
+        $params=[
+            'total'=>$total,
+            'limit'=>5,
+            'string'=>'page',
+            'controller'=>'users',
+            'action'=>'index',
+        ];
+        $page =1;
+        if (isset($_GET['page'])){
+            $page=$_GET['page'];
+        }
+        if (isset($_GET['name'])){
+            $params['query']= '&name='.$_GET['name'];
+        }
+        $pagiantion_model=new Pagination($params);
+        $pagination = $pagiantion_model->getPagination();
+        $select_user = $user_model->select_allpagination($params);
+        $this->content = $this->render('views/users/index.php',[
+            'select_user'=>$select_user,
+            'pagination' =>$pagination,
+        ]);
         require_once 'views/layouts/main.php';
     }
     public function create(){

@@ -85,13 +85,13 @@
             <?php echo $this->content?>
             <?php
             echo "<pre>";
-            print_r($_SESSION['user_main']);
+            //print_r($_SESSION['user_main']);
             echo "</pre>";
             echo "<pre>";
-            print_r($select_user);
+            //print_r($select_user);
             echo "</pre>";
             echo "<pre>";
-            print_r($select_update);
+            //print_r($select_update);
             echo "</pre>";
             ?>
 

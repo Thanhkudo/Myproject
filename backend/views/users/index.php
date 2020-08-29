@@ -3,10 +3,11 @@
         <div class="col">
             <h3>Danh sách User</h3>
         </div>
-
+        <?php if ($_SESSION['user_main']['vip']==2): ?>
         <div class="col text-right" >
             <button class="btn btn-success"><a href="?controller=users&action=create" style="text-decoration: none; color: #fffFff;display: block"><i class="fa fa-plus"></i> Thêm mới</a></button>
         </div>
+        <?php endif;?>
     </div>
     <br>
     <div style="overflow-x: auto">
@@ -56,6 +57,9 @@
                 </td>
             </tr>
             <?php endforeach;?>
+            <tr>
+                <td colspan="9"><?php echo $pagination?></td>
+            </tr>
         </table>
     </div>
 </div>

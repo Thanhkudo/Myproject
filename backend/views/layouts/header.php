@@ -17,7 +17,7 @@
         <div class="input-group input-group-sm">
             <input type="hidden" name="controller" value="<?php echo isset($_GET['controller'])?$_GET['controller']:'index';?>">
             <input type="hidden" name="action" value="<?php echo isset($_GET['action'])?$_GET['action']:'index'?>">
-            <input class="form-control form-control-navbar" type="text" name="name" value="" placeholder="Search" aria-label="Search">
+            <input class="form-control form-control-navbar" type="text" name="name" value="<?php echo isset($_GET['name'])?$_GET['name']:''?>" placeholder="Search" aria-label="Search">
             <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit" name="search">
                     <i class="fas fa-search"></i>
