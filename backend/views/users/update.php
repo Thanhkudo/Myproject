@@ -1,7 +1,7 @@
 <div class="container col-8">
     <div class="form-group">
         <form action="" method="post" enctype="multipart/form-data">
-            <h3>Update Employees</h3>
+            <h3>Cập nhật thành viên</h3>
             <hr>
             <label for="username">User Name <span style="color: red">*</span></label>
             <input type="text" name="username" disabled id="username" class="form-control" value="<?php echo $select_update['username']?>">

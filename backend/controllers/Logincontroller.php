@@ -10,7 +10,7 @@ class LoginController{
 
     public function login(){
         $this->title_page="Login";
-        if (isset($_SESSION['user_main'])){
+        if (isset($_SESSION['username'])){
             $_SESSION['success']='Chào mừng bạn quay trở lại';
             header('Location:index.php');
             exit();
@@ -30,11 +30,28 @@ class LoginController{
                 $this->error="Bạn không đủ thầm quyền vào trang này!";
             }
             if (empty($this->error)){
-                $_SESSION['success']="Xin chào $username";
+                if (isset($_POST['remember'])) {
+                    setcookie('username','fefefef',time()+60);
+                }
+                $_SESSION['username']= isset($_COOKIE['username']) ? $_COOKIE['username'] : $username ;
+                $_SESSION['success']='Xin chào '.$user_main['fullname'];
                 $_SESSION['user_main']=$user_main;
                 header('Location:index.php');
                 exit();
             }
+            echo"<pre>";
+            print_r($_POST);
+            echo"</pre>";
+            echo"<pre>";
+            print_r($_SESSION);
+            echo"</pre>";
+            echo"<pre>";
+            print_r($_COOKIE);
+            echo"</pre>";
+
+
+
+
         }
         $this->content= $this->render('views/users/login.php');
         require_once 'views/layouts/main_login.php';
@@ -42,6 +59,7 @@ class LoginController{
 
     public function logout(){
         session_destroy();
+        setcookie('username','usernamr',time()-1);
         $_SESSION['success']="Logout thành công";
         header('Location:index.php?controller=login&action=login');
         exit();

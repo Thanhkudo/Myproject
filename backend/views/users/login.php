@@ -44,7 +44,7 @@
                 <div class="input-group col-sm-offset-3 col-sm-7">
                     <div class="checkbox">
                         <label>
-                            <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                            <input id="remember" type="checkbox" name="remember" value="1"> Remember me
                         </label>
                     </div>
                 </div>

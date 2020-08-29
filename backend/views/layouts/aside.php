@@ -38,13 +38,19 @@
                             <li class="nav-item">
                                 <a href="?controller=users&action=detail&id=<?php echo $id?>" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Profile</p>
+                                    <p>Trang cá nhân</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?controller=users&action=change_pass&id=<?php echo $id?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Đổi mật khẩu</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="?controller=login&action=logout" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Sign Out</p>
+                                    <p>Đăng xuất</p>
                                 </a>
                             </li>
                         </ul>

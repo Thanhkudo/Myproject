@@ -56,6 +56,13 @@ class Users extends Model {
         return $update->execute($arr_update);
 
     }
+    public function update_pass($id){
+        $update=$this->conn->prepare("UPDATE users SET password=:password WHERE id =$id");
+        $arr_update=[
+            ':password'=>$this->password,
+        ];
+        return $update->execute($arr_update);
+    }
     public function reset($name){
         $update =$this->conn->prepare("UPDATE `users` SET `password`=:password WHERE username='$name'");
         $arr_update=[
@@ -79,7 +86,7 @@ class Users extends Model {
     }
     public function select_allpagination($params=[]){
         $limit = $params['limit'];
-        $page =  isset($params['page'])?$params['page']:'1';
+        $page =  $params['page'];
         $start = ($page - 1) * $limit;
         $select = $this->conn->prepare("SELECT * FROM users WHERE TRUE $this->search LIMIT $start, $limit" );
         $select ->execute();
@@ -130,7 +137,7 @@ class Users extends Model {
 
     }
     public function getCount(){
-        $select = $this->conn->prepare("SELECT COUNT(id) AS Count FROM users");
+        $select = $this->conn->prepare("SELECT COUNT(id) FROM users WHERE TRUE $this->search");
         $select ->execute();
         return $select->fetchColumn();
 

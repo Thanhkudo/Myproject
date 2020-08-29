@@ -2,7 +2,7 @@
 class Controller{
 
     public function __construct(){
-        if (!isset($_SESSION['user_main'])){
+        if (!isset($_SESSION['username'])){
             $_SESSION['error']="Bạn cần đăng nhập";
             header('Location: index.php?controller=login&action=login');
             exit();

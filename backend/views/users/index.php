@@ -57,9 +57,9 @@
                 </td>
             </tr>
             <?php endforeach;?>
-            <tr>
-                <td colspan="9"><?php echo $pagination?></td>
-            </tr>
         </table>
+        <nav aria-label="Page navigation example">
+            <?php echo $pagination?>
+        </nav>
     </div>
 </div>

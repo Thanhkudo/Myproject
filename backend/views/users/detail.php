@@ -1,5 +1,5 @@
 <div class="container col-10" style="overflow-x: auto">
-        <h3>View Employees</h3>
+        <h3>Thôn tin chi tiết</h3>
         <hr>
         <table class="table table-hover">
                 <tr>

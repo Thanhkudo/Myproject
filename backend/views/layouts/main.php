@@ -85,7 +85,10 @@
             <?php echo $this->content?>
             <?php
             echo "<pre>";
-            //print_r($_SESSION['user_main']);
+            print_r($_SESSION['user_main']);
+            echo "</pre>";
+            echo "<pre>";
+            print_r($_SESSION['username']);
             echo "</pre>";
             echo "<pre>";
             //print_r($select_user);

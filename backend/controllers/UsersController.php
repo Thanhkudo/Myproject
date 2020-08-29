@@ -7,21 +7,22 @@ class UsersController extends Controller {
     public function index(){
         $this->title_page="Users";
         $user_model=new Users();
-        $total = $user_model->getCount();
         $params=[
-            'total'=>$total,
-            'limit'=>5,
+            'limit'=>4,
             'string'=>'page',
             'controller'=>'users',
             'action'=>'index',
         ];
         $page =1;
         if (isset($_GET['page'])){
-            $page=$_GET['page'];
+            $page = $_GET['page'];
         }
         if (isset($_GET['name'])){
             $params['query']= '&name='.$_GET['name'];
         }
+        $total = $user_model->getCount();
+        $params['total']=$total;
+        $params['page']=$page;
         $pagiantion_model=new Pagination($params);
         $pagination = $pagiantion_model->getPagination();
         $select_user = $user_model->select_allpagination($params);
@@ -231,6 +232,45 @@ class UsersController extends Controller {
         }
 
 
+    }
+    public function change_pass(){
+        if (isset($_POST['submit'])){
+            $pass=$_POST['pass'];
+            $new_pass=$_POST['new_pass'];
+            $cf_pass=$_POST['cf_pass'];
+            if (empty($pass)){
+                $this->error='Cần nhập mật khẩu hiện tại !';
+            }elseif (empty($new_pass)){
+                $this->error='Cần nhập mật khẩu mới !';
+            }elseif (strlen($new_pass)<6){
+                $this->error='Mật khẩu chứa ít nhất 6 ký tự !';
+            }elseif (empty($cf_pass)) {
+                $this->error = 'Cần nhập lại mật khẩu !';
+            }elseif ($cf_pass!= $new_pass){
+                $this->error='Mật khẩu không trùng khớp !';
+            }elseif ($_SESSION['user_main']['password']!= md5($pass)){
+                $this->error='Mật khẩu hiện tại chưa đúng !';
+            }
+
+            if (empty($this->error)){
+                $id =$_SESSION['user_main']['id'];
+                $user_model= new Users();
+                $user_model->password=md5($new_pass);
+                $is_update = $user_model->update_pass($id);
+                if ($is_update){
+                    $_SESSION['success']="Đổi mật khẩu thành công !";
+                    header('Location:index.php');
+                    exit();
+                }
+                else{
+                    $this->error='Lỗi kết nối';
+                }
+            }
+
+        }
+        $this->title_page="Change Password";
+        $this->content=$this->render('views/users/change_pass.php');
+        require_once 'views/layouts/main.php';
     }
 
 }

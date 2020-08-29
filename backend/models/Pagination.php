@@ -56,7 +56,7 @@ class pagination{
         //lấy ra trang hiện tại
         if ($this->getCurrentPage() > 1){
             $url=$this->full_url.($this->getCurrentPage() -1);
-            $prev_page='<li><a href="'.$url.'"> Prev </a></li>';
+            $prev_page='<li class="page-item"><a class="page-link" href="'.$url.'"> Prev </a></li>';
         }
         return $prev_page;
     }
@@ -68,7 +68,7 @@ class pagination{
         $total_page = $this->getTotalPage();
         if ($current_page < $total_page){
             $url=$this->full_url.($current_page + 1);
-            $next_page ='<li><a href="'.$url.'"> Next </a></li>';
+            $next_page ='<li class="page-item"><a class="page-link" href="'.$url.'"> Next </a></li>';
         }
         return $next_page;
     }
@@ -79,7 +79,7 @@ class pagination{
         if ($this->getTotalPage() == 1){
             return '';
         }
-        $data ='<ul class="pagination">';
+        $data ='<ul class="pagination justify-content-center">';
 
         //hiển thị Prev
         $data.=$this->getPrevPage();
@@ -88,11 +88,11 @@ class pagination{
             $current_page = $this->getCurrentPage();
             //nếu là trang hiện tại thì thêm active để nhận biết
             if ($i == $this->getCurrentPage()){
-                $data.='<li class="active"><a href=""> '.$i.' </a></li>';
+                $data.='<li class="active page-item"><a href="" class="page-link"> '.$i.' </a></li>';
             }
             else{
                 $url=$this->full_url.$i;
-                $data.='<li><a href="'.$url.'"> '.$i.' </a></li>';
+                $data.='<li class="page-item"><a class="page-link" href="'.$url.'"> '.$i.' </a></li>';
             }
         }
 
