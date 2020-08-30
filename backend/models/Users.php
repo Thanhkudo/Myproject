@@ -71,7 +71,7 @@ class Users extends Model {
         return $update->execute($arr_update);
 
     }
-    public function select_all($params=[]){
+    /*public function select_all($params=[]){
 
         $arr_search = " WHERE TRUE";
         if (isset($param['name'])&&!empty($param['name'])){
@@ -79,11 +79,10 @@ class Users extends Model {
             $arr_search .= " AND username LIKE '%$name%' ";
         }
         $select = $this->conn->prepare("SELECT * FROM users $arr_search ORDER BY id DESC ");
-
         $select ->execute();
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;
-    }
+    }*/
     public function select_allpagination($params=[]){
         $limit = $params['limit'];
         $page =  $params['page'];

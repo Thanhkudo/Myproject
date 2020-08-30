@@ -83,12 +83,14 @@
         </section>
         <section class="content">
             <?php echo $this->content?>
+
+
             <?php
             echo "<pre>";
             print_r($_SESSION['user_main']);
             echo "</pre>";
             echo "<pre>";
-            print_r($_SESSION['username']);
+            //print_r($_SESSION['username']);
             echo "</pre>";
             echo "<pre>";
             //print_r($select_user);
@@ -138,6 +140,7 @@
 <script src="assets/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="assets/js/pages/dashboard.js"></script>
+<script src="assets/ckeditor/ckeditor.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
 </html>

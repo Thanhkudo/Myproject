@@ -18,7 +18,19 @@ $(document).ready(function () {
     //tích hợp ckediter: giá trị truyền vào là name của thẻ text aria
     //cần xóa cache trình duyệt để thấy sự thay đổi
     //Ctrl + Shift + R
-    CKEDITOR.replace('description' , {
+    CKEDITOR.replace('noibat' , {
+        //đường dẫn đến file ckfinder.html của ckfinder
+        filebrowserBrowseUrl: 'assets/ckfinder/ckfinder.html',
+        //đường dẫn đến file connector.php của ckfinder
+        filebrowserUploadUrl: 'assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+    });
+    CKEDITOR.replace('thongso' , {
+        //đường dẫn đến file ckfinder.html của ckfinder
+        filebrowserBrowseUrl: 'assets/ckfinder/ckfinder.html',
+        //đường dẫn đến file connector.php của ckfinder
+        filebrowserUploadUrl: 'assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+    });
+    CKEDITOR.replace('mota' , {
         //đường dẫn đến file ckfinder.html của ckfinder
         filebrowserBrowseUrl: 'assets/ckfinder/ckfinder.html',
         //đường dẫn đến file connector.php của ckfinder

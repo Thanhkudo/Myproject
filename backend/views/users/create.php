@@ -18,7 +18,6 @@
             <label for="avatar">Avatar </label>
             <input type="file" name="avatar" id="avatar" class="form-control" value="">
             <img src="#" alt="" id="img-preview" style="display: none" width="150px" height="100px"><br>
-
             <label for="email">Email </label>
             <input type="text" name="email" id="email" class="form-control" value="<?php echo isset($_POST['email'])?$_POST['email']:""?>">
 

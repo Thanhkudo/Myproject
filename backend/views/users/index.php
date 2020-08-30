@@ -21,7 +21,7 @@
                 <th scope="col">Gender</th>
                 <th scope="col">Address</th>
                 <th scope="col">Vip</th>
-                <th scope="col">Action</th>
+                <th scope="col class="text-center"">Action</th>
             </tr>
             <?php foreach ($select_user as $val):?>
             <tr>
@@ -51,7 +51,7 @@
                 <td class="text-center">
                 <a href="?controller=users&action=detail&id=<?php echo $val['id']?>"><i class="far fa-eye"></i></a>
                     <?php if ($_SESSION['user_main']['vip']==2): ?>
-                    <a href="?controller=users&action=update&id=<?php echo $val['id']?>"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="?controller=users&action=update&id=<?php echo $val['id']?>"><i class="fas fa-edit"></i></a>
                     <a href="?controller=users&action=delete&id=<?php echo $val['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa !')"><i class="far fa-trash-alt"></i></a>
                     <?php endif;?>
                 </td>
