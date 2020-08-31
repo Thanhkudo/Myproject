@@ -37,7 +37,7 @@
                         <?php endif;?>
                     <?php endforeach;?>
                     <td scope="col">
-                        <img height="100px" src="assets/images/sanpham/<?php echo $val['avatar'] ?>"/>
+                        <img height="100px" width="100px" src="assets/images/sanpham/<?php echo $val['avatar'] ?>"/>
                     </td>
                     <?php
                     $status='';
@@ -63,7 +63,7 @@
             <?php endforeach;?>
         </table>
         <nav aria-label="Page navigation example">
-            <?php echo $pagination?>
+            <?php echo $pagination ?>
         </nav>
     </div>
 </div>

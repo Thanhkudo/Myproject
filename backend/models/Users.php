@@ -42,7 +42,7 @@ class Users extends Model {
         return $insert->execute($arr_insert);
     }
     public function update($id){
-        $update =$this->conn->prepare("UPDATE users SET password=:password, fullname=:fullname, avatar=:avatar, phone=:phone, address=:address, email=:email, gender=:gender, vip=:vip WHERE id=$id");
+        $update =$this->conn->prepare("UPDATE users SET password=:password, fullname=:fullname, avatar=:avatar, phone=:phone, address=:address, email=:email, gender=:gender, vip=:vip WHERE id = $id");
         $arr_update=[
             ':password'=>$this->password,
             ':fullname'=>$this->fullname,

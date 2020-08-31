@@ -42,7 +42,21 @@ class Sanpham extends Model {
         ];
         return $insert->execute($arr_insert);
     }
-    public function update(){
+    public function update($id){
+        $update =$this->conn->prepare("UPDATE sanpham SET name_sp=:name_sp, id_loaisp=:id_loaisp, id_hangsx=:id_hangsx, gia_sp=:gia_sp, thongso_sp=:thongso_sp, mota_sp=:mota_sp, noibat=:noibat, avatar=:avatar, sale=:sale, status=:status WHERE id_sp = $id");
+        $arr_update=[
+            ':name_sp'=>$this->name_sp,
+            ':id_loaisp'=>$this->id_loaisp,
+            ':id_hangsx'=>$this->id_hangsx,
+            ':gia_sp'=>$this->gia_sp,
+            ':thongso_sp'=>$this->thongso_sp,
+            ':mota_sp'=>$this->mota_sp,
+            ':noibat'=>$this->noibat,
+            ':avatar'=>$this->avatar,
+            ':status'=>$this->status,
+            ':sale'=>$this->sale,
+        ];
+        return  $update->execute($arr_update);
     }
     public function select_one($id){
         $select = $this->conn->prepare("SELECT * FROM sanpham WHERE id_sp=$id");
@@ -77,7 +91,7 @@ class Sanpham extends Model {
         return  $delete ->execute();
     }
     public function getCount(){
-        $select = $this->conn->prepare("SELECT COUNT(id_sp) FROM sanpahm WHERE TRUE $this->search");
+        $select = $this->conn->prepare("SELECT COUNT(id_sp) FROM sanpham WHERE TRUE $this->search");
         $select ->execute();
         return $select->fetchColumn();
 
