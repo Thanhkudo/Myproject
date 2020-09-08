@@ -33,7 +33,7 @@ class Mailer{
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Xác nhận đổi mật khẩu ';
             $mail->Body = "Vui lòng click vào đường link sau để xác nhận: 
-            http://localhost/PHP0320E_Thanhkudo/web/backend/index.php?controller=login&action=reset&name=$name";
+            http://localhost/PHP0320E_Thanhkudo/web/fontend/index.php?controller=home&action=reset&name=$name";
             $mail->AltBody = '';
             $mail->send();
             return true;

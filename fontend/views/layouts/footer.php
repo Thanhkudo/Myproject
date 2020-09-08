@@ -1,98 +1,128 @@
 <div class="footer">
-    <div class="footer-top">
-        <div class="wrap">
-            <div class="section group example">
-                <div class="col_1_of_2 span_1_of_2">
-                    <ul class="f-list">
-                        <li><img src="images/2.png"><span class="f-text">Free Shipping on orders over $ 100</span><div class="clear"></div></li>
-                    </ul>
-                </div>
-                <div class="col_1_of_2 span_1_of_2">
-                    <ul class="f-list">
-                        <li><img src="images/3.png"><span class="f-text">Call us! toll free-222-555-6666 </span><div class="clear"></div></li>
-                    </ul>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-middle">
-        <div class="wrap">
-            <div class="section group example">
-                <div class="col_1_of_f_1 span_1_of_f_1">
-                    <div class="section group example">
-                        <div class="col_1_of_f_2 span_1_of_f_2">
-                            <h3>GIỚI THIỆU</h3>
-                            <ul class="f-list1">
-                                <li><a href="#">Về chúng tôi </a></li>
-                                <li><a href="#">Lĩnh vực hoạt động </a></li>
-                                <li><a href="#">Hỏi đáp</a></li>
-                                <li><a href="#">Quy chế</a></li>
+    <div class="footer-content clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="footer-box col-md-3 col-sm-12 col-xs-12">
+                    <div class="item">
+                        <h3>
+                            <span>Giới thiệu</span>
+                        </h3>
+                        <div class="toggle-footer" style="">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Về chúng tôi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Lĩnh vực hoạt động
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Hỏi đáp
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Quy chế hoạt động
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Tuyển dụng
+                                    </a>
+                                </li>
                             </ul>
                         </div>
-                        <div class="clear"></div>
                     </div>
                 </div>
-                <div class="col_1_of_f_1 span_1_of_f_1">
-                    <div class="section group example">
-                        <div class="col_1_of_f_2 span_1_of_f_2">
-                            <h3>TRỢ GIÚP</h3>
-                            <ul class="f-list1">
-                                <li><a href="#">Hướng dẫn thanh toán </a></li>
-                                <li><a href="#">Quy định đổi trả </a></li>
-                                <li><a href="#">Chính sách bảo mậ</a></li>
-                                <li><a href="#">Chính sách bán hàng</a></li>
+                <div class="footer-box col-md-3 col-sm-12 col-xs-12">
+                    <div class="item">
+                        <h3>
+                            <span>Trợ giúp</span>
+                        </h3>
+                        <div class="toggle-footer" style="">
+                            <ul>
+                                <li>
+                                    <a href="/">
+                                        Hướng dẫn thanh toán
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/">
+                                        Quy định đổi trả
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/">
+                                        Qui định thảo luận
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/">
+                                        Chính sách bảo mật
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        Chính sách bán hàng
+                                    </a>
+                                </li>
                             </ul>
                         </div>
-                        <div class="clear"></div>
                     </div>
                 </div>
-                <div class="col_1_of_f_1 span_1_of_f_1">
-                    <div class="section group example">
-                        <div class="col_1_of_f_2 span_1_of_f_2">
-                            <h3>LIÊN HỆ</h3>
-                            <div class="company_address">
-                                <p>Cửa hàng KudoShop</p>
-                                <p>Phú Lương_Hà Đông</p>
-                                <p>Phone:(+84)355 820 911 </p>
-                                <p>Email: <span>thaanhkudo1o11998@gmail.com</span></p>
+                <div class="footer-box box-address col-md-3 col-sm-12 col-xs-12">
+                    <div class="item">
+                        <h3>
+                            Thông tin cửa hàng
+                        </h3>
+                        <div class="box-address-content toggle-footer" style="">
+                            <b>Cuae hàng Kudo Shop </b>
+                            <p></i> Uy tín - Chất lượng</p>
+                            <p><i class="fa fa-map-marker"></i> Phú Lương - Hà Đông - Hà Nội</p>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                                Phone: (043) 22 222 22
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-box box-social col-md-3 col-sm-12 col-xs-12">
+                    <div class="item">
+                        <h3>
+                            Hotline
+                        </h3>
+                        <div class="box-address-content toggle-footer" style="">
 
-                            </div>
+                            <p> Nhân viên chăm sóc khác hàng:</p>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                                Mr.Thanh: 0355 820 911
+                            </p>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                                Mr.Thanh: 0355 820 911
+                            </p>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                                Mr.Thanh: 0355 820 911
+                            </p>
                         </div>
-                        <div class="col_1_of_f_2 span_1_of_f_2">
-                            <h3>Contact us</h3>
-                            <div class="company_address">
-                                <p>500 Lorem Ipsum Dolor Sit,</p>
-                                <p>22-56-2-9 Sit Amet, Lorem,</p>
-                                <p>USA</p>
-                                <p>Phone:(00) 222 666 444</p>
-                                <p>Fax: (000) 000 00 00 0</p>
-                                <p>Email: <span>mail[at]leoshop.com</span></p>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="wrap">
-            <div class="copy">
-                <p>© 2020 Kudo Shop </p>
-            </div>
-            <div class="f-list2">
-                <div class="social-media">
-                    <ul>
-                        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Google"><a href="#"> </a></span></li>
-                        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Linked in"><a href="#" > </a> </span></li>
-                        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Rss"><a href="#" > </a></span></li>
-                        <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><a href="#"></a></span></li>
-                    </ul>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <h5 style="color: white; padding-bottom: 15px">&#169;Kudo Shop - Phú Lương - Hà Đông - Hà Nội - Việt Nam</h5>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <span style="float: right; color: white"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i> <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i> <i class="fa fa-instagram fa-3x" aria-hidden="true"></i> <i class="fa fa-youtube-square fa-3x" aria-hidden="true"></i></span>
                 </div>
             </div>
-            <div class="clear"></div>
         </div>
     </div>
+</div>
 </div>

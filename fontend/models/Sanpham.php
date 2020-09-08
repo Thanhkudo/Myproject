@@ -13,7 +13,7 @@ class Sanpham extends Model {
     public $avatar;
     public $status;
     public $sale;
-    public $search;
+    public $search='';
 
 
     public function __construct(){
@@ -77,11 +77,12 @@ class Sanpham extends Model {
         }
         return FALSE;
     }
-    public function select_allpagination($params=[]){
+    public function select_allpagination($params=[],$idloai,$idhang){
+        $menu = !empty($idloai)&&!empty($idhang)? "AND `id_hangsx` = $idhang AND `id_loaisp` = $idloai":'';
         $limit = $params['limit'];
         $page =  $params['page'];
         $start = ($page - 1) * $limit;
-        $select = $this->conn->prepare("SELECT * FROM sanpham WHERE TRUE $this->search LIMIT $start, $limit " );
+        $select = $this->conn->prepare("SELECT * FROM sanpham WHERE TRUE $this->search $menu LIMIT $start, $limit " );
         $select ->execute();
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;
@@ -92,6 +93,20 @@ class Sanpham extends Model {
     }
     public function getCount(){
         $select = $this->conn->prepare("SELECT COUNT(id_sp) FROM sanpham WHERE TRUE $this->search");
+        $select ->execute();
+        return $select->fetchColumn();
+
+
+    }
+    public function getmenu($n){
+        $select= $this->conn->prepare("SELECT DISTINCT sanpham.id_hangsx,sanpham.id_loaisp,hang_sx.name_hangsx FROM sanpham INNER JOIN hang_sx ON sanpham.id_hangsx = hang_sx.id_hangsx WHERE sanpham.id_loaisp = $n");
+        $select->execute();
+        $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
+        return $is_select;
+    }
+    public function getCountmenu($idloai,$idhang){
+        $menu = !empty($idloai)&&!empty($idhang)? "AND `id_hangsx` = $idhang AND `id_loaisp` = $idloai":'';
+        $select = $this->conn->prepare("SELECT COUNT(id_sp) FROM sanpham WHERE TRUE $this->search $menu");
         $select ->execute();
         return $select->fetchColumn();
 

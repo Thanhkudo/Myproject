@@ -1,67 +1,87 @@
-<div class="header-bottom">
-    <div class="wrap">
-        <div class="header-bottom-left">
-            <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt=""/></a>
+<div class="header">
+    <nav class="navbar navbar-default" role="navigation" >
+        <div class="collapse navbar-collapse navbar-ex1-collapse header_top">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dorpdown"><a href="#"><span class="glyphicon glyphicon-gift"></span>Khuyến mãi</a></li>
+                <li class="dorpdown"><a href=""><span class="glyphicon glyphicon-shopping-cart"></span>Giỏ hàng</a></li>
+                <li class="dorpdown"><a href=""><span class="glyphicon glyphicon-shopping-cart"></span>Kiểm tra đơn hàng</a></li>
+                <li class="dorpdown"><a href="#"><span class="glyphicon glyphicon-phone-alt"></span>Hỗ trợ khách hàng</a></li>
+                <?php
+                if(!isset($_SESSION["user_main"])){
+                    ?>
+                    <!-- <li class="dorpdown"><a href="index.php?view=login"><span class="glyphicon glyphicon-user"></span>Đăng nhập</a></li> -->
+                    <li style="margin-top: -2px;"><a data-toggle="modal" href='#modal-id' class="glyphicon glyphicon-user"> Đăng nhập</a>
+                        <div class="modal fade" id="modal-id">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <center><h4 class="">Đăng Nhập</h4></center>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" method="post">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="username" name="username"  onchange="" placeholder="Nhập Username" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required="">
+                                            </div><br>
+                                            <div>
+                                                <input type="checkbox" name="checked" id="checked"> Nhớ mật khẩu?<a style="float: right;" href="index.php?controller=home&action=forgot">Quên mật khẩu?</a>
+                                            </div>
+
+
+                                            <center><button type="submit" class="btn btn-primary" id="login" name="login">Đăng nhập</button></center><br>
+                                            <button type="submit" id="cancel_edit" class="btn btn-primary"	>Hủy</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></li>
+                    <li class="dorpdown"><a href="?controller=home&action=create"><span class="glyphicon glyphicon-user"></span>Đăng ký</a></li>
+                <?php }else{
+                    ?>
+                    <li class="dorpdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">Chào:<?php echo $_SESSION["user_main"]["fullname"] ?></span></a>
+
+                        <ul class="dropdown-menu">
+
+                            <li ><a href="">
+                                    <span class="glyphicon glyphicon-cog"></span>Thông tin cá nhân
+                                </a></li>
+                            <?php if(isset($_SESSION['user_main']['vip'])!=0):?>
+
+
+                                <li ><a href="../backend/index.php">
+                                        <span class="glyphicon glyphicon-wrench"></span>Vào trang Admin
+                                    </a></li>
+                            <?php endif ?>
+                            <li><a href="?controller=home&action=logout"><span class="glyphicon glyphicon-off">Thoát</span></a></li>
+                        </ul>
+                    </li>
+
+                    <?php
+                } ?>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</div> <!-- header -->
+<section class="header-content " style="margin-top: -10px;">
+    <div class="container" style="background-color: #9ACD32; align="center" >
+        <div class="row" >
+            <div class="col-md-3 col-sm-3 col-xs-12 ">
+                <a href="index.php" title="">
+                    <img style="width: 150px; border-radius: 10px;"  alt="Thế giới Alo" src="assets/images/layouts/logg.jpg" class="img-responsive center-block">
+                </a>
             </div>
-            <div class="menu">
-                <ul class="megamenu skyblue">
-                    <li class="active grid"><a href="index.html">Home</a></li>
-                    <li><a class="color4" href="#">ĐIỆN THOẠI</a>
-                        <div class="megapanel">
-                            <div class="h_nav">
-                                <ul>
-                                    <li><a href="#">SAMSUNG</a></li>
-                                    <li><a href="#">LENOVO</a></li>
-                                    <li><a href="#">IPHONE</a></li>
-                                    <li><a href="#">XIAOMI</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="color5" href="#">TAPLET</a>
-                        <div class="megapanel">
-                            <div class="h_nav">
-                                <ul>
-                                    <li><a href="#">SAMSUNG</a></li>
-                                    <li><a href="#">LENOVO</a></li>
-                                    <li><a href="#">IPHONE</a></li>
-                                    <li><a href="#">XIAOMI</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="color56" href="#">LAPTOP</a>
-                        <div class="megapanel">
-                            <div class="h_nav">
-                                <ul>
-                                    <li><a href="#">SAMSUNG</a></li>
-                                    <li><a href="#">LENOVO</a></li>
-                                    <li><a href="#">IPHONE</a></li>
-                                    <li><a href="#">XIAOMI</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a class="color7" href="#">Địa chỉ</a></li>
-                    <li><a class="color8" href="#">Liên hệ</a></li>
-                </ul>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <form class="navbar-form navbar-left" action="" role="search" enctype="mutipart/from-data" method="get" style="padding-top: 10px;" >
+                    <div class="form-group">
+                        <input type="hidden" name="controller" value="home">
+
+                        <input type="text" name="name" class="form-control" placeholder="Bạn kiếm sản phẩm gì?" required="">
+                    </div>
+                    <button type="submit" name="search" value="search" class="btn btn-default "><span class="glyphicon glyphicon-search"></span></button>
+                </form>
             </div>
         </div>
-        <div class="header-bottom-right">
-            <div class="search">
-                <input type="text" name="search" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-                <input type="submit" value="Subscribe" id="submit" name="submit">
-                <div id="response"> </div>
-            </div>
-            <div class="tag-list">
-                <ul class="icon1 sub-icon1 profile_img">
-                    <li><a class="active-icon c2" href="#"></a>
-                    </li>
-                </ul>
-                <ul class="last"><li>Cart(0)</li></ul>
-            </div>
-        </div>
-        <div class="clear"></div>
     </div>
-</div>
+</section>

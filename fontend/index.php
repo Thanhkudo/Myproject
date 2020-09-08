@@ -3,7 +3,7 @@ session_start();
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
-$controller = isset($_GET['controller'])? $_GET['controller']:'index';
+$controller = isset($_GET['controller'])? $_GET['controller']:'home';
 
 $action = isset($_GET['action'])? $_GET['action']:'index';
 
@@ -28,3 +28,4 @@ else{
     $obj->$action();
 }
 ?>
+<img style="width: 225px; height: 225px;" src="../backend/assets/images/sanpham" alt="Product Name">

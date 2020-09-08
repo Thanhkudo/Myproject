@@ -8,8 +8,8 @@
                     </span>
                 </h3>
                 <ul>
-                    <li><a href="index.php?view=createid"><i class="fa fa-key"></i>Đăng ký</a></li>
-                    <li><a href="index.php?view=fogetpass"><i class="fa fa-key"></i>Quên mật khẩu</a></li>
+                    <li><a href="?controller=home&action=create"><i class="fa fa-key"></i>Đăng ký</a></li>
+                    <li><a href="?controller=home&action=forgot"><i class="fa fa-key"></i>Quên mật khẩu</a></li>
                 </ul>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="register-content clearfix ng-scope">
                 <h1 class="title"><span>Đăng ký tài khoản</span></h1>
                 <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 col-xs-offset-0 col-sm-offset-0">
-                    <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required ng-valid-email"  method="post">
+                    <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required ng-valid-email"  method="post" action="">
                         <h2><span>Thông tin tài khoản</span></h2>
 
                         <div class="form-group">
