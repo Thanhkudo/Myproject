@@ -113,9 +113,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="?controller=hangsx" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>jsGrid</p>
+                                <p>Các hãng sản phẩm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?controller=slideshow" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Slide Show</p>
                             </a>
                         </li>
                     </ul>

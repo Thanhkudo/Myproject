@@ -23,7 +23,6 @@
             <label for="hangsx">Hãng sản xuất  </label>
             <select name="hangsx" id="hangsx" class="form-control">
                 <option value="-1">--Chọn hãng sản phẩm --</option>
-
                 <?php foreach ($select_hangsx as $hangsx):
                     $selected_hangsx='';
                     if ($hangsx['id_hangsx']==$select_sp['id_hangsx']){

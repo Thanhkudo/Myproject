@@ -65,7 +65,7 @@ class SanphamController extends Controller {
             }elseif ($avatar['error']==0){
                 $duoifile = pathinfo($_FILES['avatar']['name'],PATHINFO_EXTENSION);
                 strtolower($duoifile); //chuyen chu tương
-                $arr_duoifile=['png','jpg','jbeg','gif'];
+                $arr_duoifile=['png','jpg','jpeg','gif','jfif'];
                 $file_size_mb = $_FILES['avatar']['size']/1024/1024;
                 $file_size_mb =round($file_size_mb,2);
                 if (!in_array($duoifile,$arr_duoifile)){
@@ -246,6 +246,4 @@ class SanphamController extends Controller {
 
 
     }
-
-
 }

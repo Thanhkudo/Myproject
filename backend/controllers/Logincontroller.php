@@ -102,7 +102,7 @@ class LoginController{
         }
         if (isset($_POST['submit'])){
             $user_model=new Users();
-            //$name = $_POST['name'];
+            $name = $_GET['name'];
             $pass = $_POST['pass'];
             $cf_pass = $_POST['cf_pass'];
             $is_select = $user_model->checkussername($name);

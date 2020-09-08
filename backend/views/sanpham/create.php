@@ -25,7 +25,7 @@
                 <option value="-1">--Chọn hãng sản phẩm --</option>
                 <?php foreach ($select_hangsx as $hangsx):
                     $selected_hangsx='';
-                    if (isset($_POST['hangsx']) && $hangsx['id_hangsx']==$_POST['hangsx']){
+                    if (isset($_POST['HangsxController']) && $hangsx['id_hangsx']==$_POST['HangsxController']){
                         $selected_hangsx='selected';
                     }?>
                     <option value="<?php echo $hangsx['id_hangsx']?>" <?php echo $selected_hangsx;?>><?php echo $hangsx['name_hangsx'] ?></option>
