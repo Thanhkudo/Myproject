@@ -119,9 +119,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="?controller=slideshow" class="nav-link">
+                            <a href="?controller=contact" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Slide Show</p>
+                                <p>Danh sách phản hồi</p>
                             </a>
                         </li>
                     </ul>

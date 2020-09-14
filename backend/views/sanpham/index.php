@@ -52,8 +52,8 @@
                     ?>
                     <td scope="col"><?php echo $status?></td>
                     <td scope="col"><?php echo $val['sale']?> %</td>
-                    <td scope="col"><?php echo $val['gia_sp']?> VNĐ</td>
-                    <td scope="col"><?php echo ($val['gia_sp'] - $val['gia_sp'] * $val['sale'] / 100)?> VNĐ</td>
+                    <td scope="col"><?php echo number_format($val['gia_sp'])?> VNĐ</td>
+                    <td scope="col"><?php echo number_format($val['gia_sp'] - $val['gia_sp'] * $val['sale'] / 100)?> VNĐ</td>
 
                     <td class="text-center">
                             <a href="?controller=sanpham&action=update&id=<?php echo $val['id_sp']?>"><i class="fas fa-edit"></i></a>
