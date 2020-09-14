@@ -43,8 +43,8 @@
                         <?php endforeach;?>
                     </ul>
                 </li>
-                <li><a href=""> <i class="fa fa-map" aria-hidden="true"></i>  BẢN ĐỒ</a></li>
-                <li><a href=""><i class="fa fa-newspaper-o" aria-hidden="true"></i>  LIÊN HỆ</a></li>
+                <li><a href="?controller=contacs&action=map"> <i class="fa fa-map" aria-hidden="true"></i>  BẢN ĐỒ</a></li>
+                <li><a href="?controller=contact&action=contact"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  LIÊN HỆ</a></li>
             </ul>
         </div>
 

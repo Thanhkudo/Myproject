@@ -55,6 +55,18 @@ class Users extends Model {
         return $update->execute($arr_update);
 
     }
+    public function update_user($id){
+        $update =$this->conn->prepare("UPDATE users SET fullname=:fullname, phone=:phone, address=:address, email=:email, gender=:gender WHERE id = $id");
+        $arr_update=[
+            ':fullname'=>$this->fullname,
+            ':phone'=>$this->phone,
+            ':address'=>$this->address,
+            ':email'=>$this->email,
+            ':gender'=>$this->gender,
+        ];
+        return $update->execute($arr_update);
+
+    }
     public function update_pass($id){
         $update=$this->conn->prepare("UPDATE users SET password=:password WHERE id =$id");
         $arr_update=[

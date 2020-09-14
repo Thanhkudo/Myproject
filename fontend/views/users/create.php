@@ -8,8 +8,8 @@
                     </span>
                 </h3>
                 <ul>
-                    <li><a href="?controller=home&action=create"><i class="fa fa-key"></i>Đăng ký</a></li>
-                    <li><a href="?controller=home&action=forgot"><i class="fa fa-key"></i>Quên mật khẩu</a></li>
+                    <li><a href="?controller=users&action=create"><i class="fa fa-key"></i>Đăng ký</a></li>
+                    <li><a href="?controller=users&action=forgot"><i class="fa fa-key"></i>Quên mật khẩu</a></li>
                 </ul>
             </div>
         </div>

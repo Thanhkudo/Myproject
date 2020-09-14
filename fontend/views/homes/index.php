@@ -53,18 +53,18 @@
  </div>
  <div class="container female">
      <div class="row pTB" >
-         <?php foreach ($select_sp as $val):?>
+         <?php foreach ($select_sp as $sp):?>
 
              <div class="col-md-3 col-sm-6 ">
                  <div class="products">
-                     <?php if($val['sale']!=0):?>
-                         <div class="offer"><?php echo $val["sale"]."%"; ?></div>
+                     <?php if($sp['sale']!=0):?>
+                         <div class="offer"><?php echo $sp["sale"]."%"; ?></div>
                      <?php endif; ?>
-                     <div class="thumbnail"><a href="index.php?view=info_product&id=<?php echo $val['id_sp'] ?>"><img style="width: 225px; height: 225px;" src="../backend/assets/images/sanpham/<?php echo $val['avatar']?>" alt="Sản phẩm"></a></div>
-                     <div class="productname"><?php echo $val['name_sp'] ?></div>
+                     <div class="thumbnail"><a href="index.php?controller=sanpham&action=index&id=<?php echo $sp['id_sp'] ?>"><img style="width: 225px; height: 225px;" src="../backend/assets/images/sanpham/<?php echo $sp['avatar']?>" alt="Sản phẩm"></a></div>
+                     <div class="productname"><?php echo $sp['name_sp'] ?></div>
                      <h4 class="price"><?php
-                         $price=$val["gia_sp"];
-                         $sale=$val["sale"];
+                         $price=$sp["gia_sp"];
+                         $sale=$sp["sale"];
                          $price_sale=$price - $price*$sale/100;
 
                          echo number_format("$price_sale",0,",",".");
@@ -72,8 +72,15 @@
                          ?></h4>
 
                      <div class="button_group" style="margin-bottom: 2px;">
-                         <button class="button " type="button" onclick="addCart(<?php echo $sql_row["id_sp"]; ?>)">
+                         <button class=" button add-to-cart" data-id="<?php echo $sp['id_sp'] ?>" type="button">
+                             <span class="glyphicon glyphicon-shopping-cart "></span><a href="?controller=cart&action=add&id=<?php echo $sp['id_sp']?>" style="color: inherit">Thêm vào giỏ hàng</a></button>
+                         <!--<button class="button " type="button" onclick="addCart(<?php echo $sql_row["id_sp"]; ?>)">
                              <span class="glyphicon glyphicon-shopping-cart"></span>Thêm vào giỏ hàng</button>
+                             -->
+                         <span data-id="<?php echo $product['id'] ?>" class="add-to-cart">
+                        <a href="" style="color: inherit">Thêm vào giỏ</a>
+                    </span>
+
                      </div>
                  </div>
              </div>

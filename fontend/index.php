@@ -28,4 +28,9 @@ else{
     $obj->$action();
 }
 ?>
-<img style="width: 225px; height: 225px;" src="../backend/assets/images/sanpham" alt="Product Name">
+<?php
+echo'<pre>';
+print_r($_SESSION['user_main']);
+echo'</pre>';
+
+?>
