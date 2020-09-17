@@ -39,15 +39,6 @@
 
         <!-- right -->
         <div class="col-md-9">
-
-
-
-            <link href="/Scripts/smoothproducts/smoothproducts.css" rel="stylesheet" type="text/css">
-            <script src="/Scripts/smoothproducts/smoothproducts.js" type="text/javascript"></script>
-            <script src="/app/services/productServices.js"></script>
-            <script src="/app/controllers/productController.js"></script>
-
-
             <!--Begin-->
             <div class="product-block clearfix">
                 <div class="row">
@@ -112,20 +103,11 @@
                             <p style="color: red;"><?php echo $select['status']?"Còn hàng":"Tạm thời hết hàng"; ?></p>
                         </div>
 
-
-                        <div class="quantity clearfix">
-                            <label>Số lượng:</label>
-                            <div class="quantity-input">
-                                <input value="1" class="text ng-pristine ng-untouched ng-valid" ng-model="InputQuantity" ng-init="InputQuantity=1" type="number">
-                            </div>
-                        </div>
-
-
                         <div class="button ng-scope">
-                            <a href="javascript:void(0)" class="btn btn-primary" onclick="addCart(<?php echo $select["id_sp"]; ?>)">
+                            <a href="?controller=cart&action=add&id=<?php echo $select["id_sp"]; ?>" class="btn btn-primary">
                                 <i class="glyphicon glyphicon-shopping-cart"></i>Thêm giỏ hàng
                             </a>
-                            <a href="index.php?view=thanhtoan" onclick="addCart(<?php echo $select["id_sp"]; ?>)" class="btn btn-primary">
+                            <a href="index.php?view=thanhtoan" class="btn btn-primary">
                                 <i class="glyphicon glyphicon-ok"></i>Mua ngay
                             </a>
                         </div>
@@ -133,7 +115,7 @@
                             <p class="title">Để lại số điện thoại, chúng tôi sẽ tư vấn ngay sau từ 5 › 10 phút</p>
                             <div class="input">
                                 <div class="input-group">
-                                    <input class="form-control ng-pristine ng-untouched ng-valid" ng-model="CustomerPhone" onblur="if(this.value=='')this.value='Nhập số điện thoại...'" onfocus="if(this.value=='Nhập số điện thoại...')this.value=''" value="Nhập số điện thoại..." type="text">
+                                    <input class="form-control ng-pristine ng-untouched ng-valid" value="Nhập số điện thoại..." type="text">
                                     <span class="input-group-btn">
                         <button class="btn btn-primary" type="button" ng-click="callMe()"><i class="fa fa-phone"></i> Gọi lại cho tôi</button>
                     </span>

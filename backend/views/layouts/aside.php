@@ -119,6 +119,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="?controller=payment&action=order" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách hóa đơn</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="?controller=contact" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách phản hồi</p>

@@ -143,7 +143,7 @@ class UsersController extends Controller{
 
     public function logout(){
         session_destroy();
-        setcookie('username','usernamr',time()-1);
+        setcookie('user_main','usernamr',time()-1);
         $_SESSION['success']="Logout thành công";
         header('Location:index.php');
         exit();

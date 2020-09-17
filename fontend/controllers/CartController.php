@@ -12,23 +12,30 @@ class CartController extends Controller {
   //Thao tác với file .htaccess, ngang hàng với file
   //index.php gốc của ứng dụng
     public function index() {
-        if (isset($_POST['update'])) {
-        foreach ($_SESSION['cart'] AS $id_sp => $cart) {
-            if ($_POST[$id_sp] < 0) {
-            $_SESSION['error'] = 'Số lượng phải > 0';
-//            $url_redirect = $_SERVER['SCRIPT_NAME'] . '/gio-hang-cua-ban';
-            header("Location: gio-hang-cua-ban.html");
-            exit();
-          }
-        }
 
-        //Lặp các phần tử trong giỏ hàng, và gán lại số lương
-        //tương ứng cho từng phần tử theo id của sản phẩm
-        foreach ($_SESSION['cart'] AS $id_sp => $cart) {
-          //truy cập phần tử mảng theo product_id
-          $_SESSION['cart'][$id_sp]['quantity'] = $_POST[$id_sp];
+
+
+        if (isset($_POST['update'])) {
+            if (empty($_SESSION['cart'])){
+                $_SESSION['error'] = 'Không có sản phẩm nào';
+                header("Location: index.php?controller=cart");
+                exit();
+            }
+
+            //Lặp các phần tử trong giỏ hàng, và gán lại số lương
+            //tương ứng cho từng phần tử theo id của sản phẩm
+            foreach ($_SESSION['cart'] AS $id_sp => $cart) {
+              //truy cập phần tử mảng theo product_id
+              $_SESSION['cart'][$id_sp]['quantity'] = $_POST[$id_sp];
+            }
+            $_SESSION['success'] = 'Cập nhật giỏ hàng thành công';
         }
-        $_SESSION['success'] = 'Cập nhật giỏ hàng thành công';
+        if (isset($_SESSION['cart'])){
+            foreach ($_SESSION['cart'] AS $id_sp => $cart) {
+                if ($_SESSION['cart'][$id_sp]['quantity']==0) {
+                    unset($_SESSION['cart'][$id_sp]);
+                }
+            }
         }
 
         $this->content = $this->render('views/carts/index.php');

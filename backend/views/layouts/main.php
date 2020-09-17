@@ -87,7 +87,7 @@
 
             <?php
             echo "<pre>";
-            //print_r($_SESSION['user_main']);
+            print_r($_SESSION['user_main']);
             echo "</pre>";
             echo "<pre>";
             //print_r($_SESSION['username']);

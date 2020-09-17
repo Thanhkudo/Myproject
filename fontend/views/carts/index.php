@@ -1,13 +1,10 @@
-<?php
-
-?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="payment-content ng-scope" ng-controller="orderController" ng-init="initCheckoutController()">
                 <h1 class="title"><span>Giỏ hàng</span></h1>
                 <div class="table-responsive">
-                    <form action="" method="post">
+                    <form action="index.php?controller=cart" method="post">
                     <table class="table table-bordered table-responsive">
                         <tr>
                             <th>#</th>
@@ -18,7 +15,7 @@
                             <th>Thành tiền</th>
                         </tr>
                         <?php
-                        if(isset($_SESSION["cart"])):
+                        if(isset($_SESSION["cart"])&&!empty($_SESSION["cart"])):
                             $i=0;
                             $total_cart=0
                         ?>
@@ -68,9 +65,11 @@
                     </table>
                 </div>
                 <center>
-
-                    <a href=""><input type="submit" name="update" class="btn btn-primary" value="Cập Nhật"></a>
-                    <a style="margin-left: 30px;" href="index.php?view=thanhtoan"><input type="submit" class="btn btn-primary" value="Thanh Toán"></a>
+                    <a href="index.php"><input type="button" name="back" class="btn btn-primary" value="Mua Tiếp"></a>
+                    <?php if(isset($_SESSION["cart"])&&!empty($_SESSION["cart"])):?>
+                    <a style="margin-left: 30px;" href=""><input type="submit" name="update" class="btn btn-primary" value="Cập Nhật"></a>
+                    <a style="margin-left: 30px;" href="?controller=payment"><input type="button" class="btn btn-primary" value="Thanh Toán"></a>
+                    <?php endif;?>
                 </center>
                 </form>
                 <div class="payment-title text-center">

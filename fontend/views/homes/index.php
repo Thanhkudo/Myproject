@@ -72,14 +72,12 @@
                          ?></h4>
 
                      <div class="button_group" style="margin-bottom: 2px;">
-                         <button class=" button add-to-cart" data-id="<?php echo $sp['id_sp'] ?>" type="button">
+                         <!--<button class=" button add-to-cart" data-id="<?php echo $sp['id_sp'] ?>" type="button">
                              <span class="glyphicon glyphicon-shopping-cart "></span><a href="?controller=cart&action=add&id=<?php echo $sp['id_sp']?>" style="color: inherit">Thêm vào giỏ hàng</a></button>
-                         <!--<button class="button " type="button" onclick="addCart(<?php echo $sql_row["id_sp"]; ?>)">
-                             <span class="glyphicon glyphicon-shopping-cart"></span>Thêm vào giỏ hàng</button>
-                             -->
-                         <span data-id="<?php echo $product['id'] ?>" class="add-to-cart">
-                        <a href="" style="color: inherit">Thêm vào giỏ</a>
-                    </span>
+                        --> <a href="?controller=cart&action=add&id=<?php echo $sp['id_sp']?>"><button class="button " type="button" >
+                             <span class="glyphicon glyphicon-shopping-cart"></span>Thêm vào giỏ hàng</button></a>
+
+
 
                      </div>
                  </div>

@@ -48,9 +48,7 @@
                             <li ><a href="?controller=users&action=detail">
                                     <span class="glyphicon glyphicon-cog"></span>Thông tin cá nhân
                                 </a></li>
-                            <?php if(isset($_SESSION['user_main']['vip'])!=0):?>
-
-
+                            <?php if(isset($_SESSION['user_main'])&& $_SESSION['user_main']['vip']!=0):?>
                                 <li ><a href="../backend/index.php">
                                         <span class="glyphicon glyphicon-wrench"></span>Vào trang Admin
                                     </a></li>
