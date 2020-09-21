@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 07:47 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th9 21, 2020 lúc 12:24 PM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kudoshop`
+-- Cơ sở dữ liệu: `kudoshop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacts`
+-- Cấu trúc bảng cho bảng `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -40,7 +40,7 @@ CREATE TABLE `contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `contacts`
+-- Đang đổ dữ liệu cho bảng `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `id_user`, `name`, `address`, `email`, `phone`, `title`, `content`, `created_at`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `contacts` (`id`, `id_user`, `name`, `address`, `email`, `phone`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hang_sx`
+-- Cấu trúc bảng cho bảng `hang_sx`
 --
 
 CREATE TABLE `hang_sx` (
@@ -60,7 +60,7 @@ CREATE TABLE `hang_sx` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hang_sx`
+-- Đang đổ dữ liệu cho bảng `hang_sx`
 --
 
 INSERT INTO `hang_sx` (`id_hangsx`, `name_hangsx`, `note`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `hang_sx` (`id_hangsx`, `name_hangsx`, `note`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loai_sp`
+-- Cấu trúc bảng cho bảng `loai_sp`
 --
 
 CREATE TABLE `loai_sp` (
@@ -86,7 +86,7 @@ CREATE TABLE `loai_sp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `loai_sp`
+-- Đang đổ dữ liệu cho bảng `loai_sp`
 --
 
 INSERT INTO `loai_sp` (`id_loaisp`, `name_loaisp`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `loai_sp` (`id_loaisp`, `name_loaisp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
@@ -116,23 +116,18 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `orders`
+-- Đang đổ dữ liệu cho bảng `orders`
 --
 
 INSERT INTO `orders` (`id`, `id_user`, `fullname`, `phone`, `email`, `address`, `note`, `price`, `payment`, `shipping`, `status`, `created_at`) VALUES
-(6, 21, 'Thanh Kudo', 355820911, 'thanhkudo1o11998@gmail.com', 'Hà Nội', '', 38000000, 1, 1, 0, '2020-09-16 21:34:30'),
-(7, 21, 'Thanh Kudo', 355820911, 'thanhkudo1o11998@gmail.com', 'Phú Lương, Hà Đông Hà Nội', '', 38000000, 2, 1, 0, '2020-09-16 21:34:50'),
-(8, 21, 'Thanh Kudo', 355820911, 'thanhkudo1o11998@gmail.com', 'Phú Lương, Hà Đông Hà Nội', '', 38000000, 2, 1, 0, '2020-09-16 21:36:20'),
-(9, 21, 'Thanh Kudo', 355820911, 'thanhkudo1o11998@gmail.com', 'Phú Lương, Hà Đông Hà Nội', '', 38000000, 2, 1, 0, '2020-09-16 21:41:23'),
-(10, 21, 'Thanh Kudo', 355820911, 'thanhkudo1o11998@gmail.com', 'Phú Lương, Hà Đông Hà Nội', '', 38000000, 2, 1, 0, '2020-09-16 21:46:54'),
-(11, 21, 'Thanh Kudo', 355820911, 'thanhkudo1o11998@gmail.com', 'q3r', '', 38000000, 1, 1, 0, '2020-09-16 21:52:48'),
-(12, 0, 'HumHo', 355820911, 'grgr@df.iiue', 'Hà Nội', '', 19000000, 1, 2, 0, '2020-09-17 17:23:38'),
-(13, 2, 'abcdefgh', 355820911, 'thanhkudo1o11998@gmail.com', '4r42', 'ffffffffffffffffffffffffffffffff', 36100000, 1, 1, 0, '2020-09-17 17:33:36');
+(17, 2, 'SUP ADMIN', 355820911, 'thanhkudo1o11998@gmail.com', 'Phú Lương, Hà Đông Hà Nội', '', 11640000, 1, 1, 0, '2020-09-20 19:23:16'),
+(19, 2, 'SUP ADMIN', 355820911, 'thanhkudo1o11998@gmail.com', 'Hà Nội', '', 17850000, 1, 1, 0, '2020-09-20 20:16:03'),
+(20, 2, 'SUP ADMIN', 355820911, 'thanhkudo1o11998@gmail.com', 'q3r', '', 76000000, 1, 1, 0, '2020-09-20 20:16:37');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- Cấu trúc bảng cho bảng `order_details`
 --
 
 CREATE TABLE `order_details` (
@@ -140,29 +135,30 @@ CREATE TABLE `order_details` (
   `id_order` int(4) NOT NULL,
   `id_sp` int(4) NOT NULL,
   `name_sp` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
   `quantity` int(5) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `order_details`
+-- Đang đổ dữ liệu cho bảng `order_details`
 --
 
-INSERT INTO `order_details` (`id`, `id_order`, `id_sp`, `name_sp`, `quantity`, `created_at`) VALUES
-(4, 6, 18, 'IPHONE X', 2, '2020-09-16 21:34:30'),
-(5, 7, 18, 'IPHONE X', 2, '2020-09-16 21:34:50'),
-(6, 8, 18, 'IPHONE X', 2, '2020-09-16 21:36:20'),
-(7, 9, 18, 'IPHONE X', 2, '2020-09-16 21:41:23'),
-(8, 10, 18, 'IPHONE X', 2, '2020-09-16 21:46:54'),
-(9, 11, 18, 'IPHONE X', 2, '2020-09-16 21:52:48'),
-(10, 12, 18, 'IPHONE X', 1, '2020-09-17 17:23:38'),
-(11, 13, 18, 'IPHONE X', 1, '2020-09-17 17:33:38'),
-(12, 13, 16, 'Dell Precion M4800', 1, '2020-09-17 17:33:39');
+INSERT INTO `order_details` (`id`, `id_order`, `id_sp`, `name_sp`, `avatar`, `quantity`, `created_at`) VALUES
+(13, 14, 18, 'IPHONE X', '1599253243-ipx.jpeg', 1, '2020-09-19 16:10:15'),
+(14, 15, 18, 'IPHONE X', '1599253243-ipx.jpeg', 1, '2020-09-19 16:11:48'),
+(15, 15, 19, 'Samsung S8', '1599253424-sss8.jpg', 1, '2020-09-19 16:11:48'),
+(16, 16, 19, 'Samsung S8', '1599253424-sss8.jpg', 2, '2020-09-20 16:56:14'),
+(17, 16, 16, 'Dell Precion M4800', '1599253194-dell_m4800.jpg', 1, '2020-09-20 16:56:14'),
+(18, 17, 20, 'Nokia A32', '1599253520-nokia1.jpg', 1, '2020-09-20 19:23:16'),
+(19, 18, 22, 'Dell 2018', '1599589192-dell1.jpg', 1, '2020-09-20 19:48:51'),
+(20, 19, 23, 'Ipad pro', '1599590561-so1.jpg', 1, '2020-09-20 20:16:03'),
+(21, 20, 18, 'IPHONE X', '1599253243-ipx.jpeg', 4, '2020-09-20 20:16:37');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham`
+-- Cấu trúc bảng cho bảng `sanpham`
 --
 
 CREATE TABLE `sanpham` (
@@ -181,7 +177,7 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sanpham`
+-- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
 INSERT INTO `sanpham` (`id_sp`, `name_sp`, `id_loaisp`, `id_hangsx`, `gia_sp`, `thongso_sp`, `mota_sp`, `noibat`, `avatar`, `status`, `sale`, `created_at`) VALUES
@@ -196,7 +192,7 @@ INSERT INTO `sanpham` (`id_sp`, `name_sp`, `id_loaisp`, `id_hangsx`, `gia_sp`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -214,7 +210,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `fullname`, `avatar`, `phone`, `email`, `gender`, `address`, `vip`, `create_at`) VALUES
@@ -231,45 +227,44 @@ INSERT INTO `users` (`id`, `username`, `password`, `fullname`, `avatar`, `phone`
 (30, 'admin14', 'bdc8341bb7c06ca3a3e9ab7d39ecb789', 'admin14', '', 0, '', 1, '', 0, '2020-08-28 18:57:53'),
 (31, 'admin15', 'b26c077af60ba02d12c8436110256029', 'admin15', '', 0, '', 1, '', 0, '2020-08-28 18:58:08'),
 (32, '444444', '73882ab1fa529d7273da0db6b49cc4f3', '444444', '', 0, '', 1, '', 0, '2020-08-28 21:02:41'),
-(33, 'ưefwef', 'e10adc3949ba59abbe56e057f20f883e', 'rgwrg', '', 332792626, 'grgr@df.iiue', 1, 'Hà Nội', 0, '2020-09-06 19:03:20'),
 (34, '123456', 'e10adc3949ba59abbe56e057f20f883e', '123456', '', 123456, '123456@sfsf.com', 0, '123456', 0, '2020-09-14 00:30:23');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `contacts`
+-- Chỉ mục cho bảng `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `hang_sx`
+-- Chỉ mục cho bảng `hang_sx`
 --
 ALTER TABLE `hang_sx`
   ADD PRIMARY KEY (`id_hangsx`);
 
 --
--- Indexes for table `loai_sp`
+-- Chỉ mục cho bảng `loai_sp`
 --
 ALTER TABLE `loai_sp`
   ADD PRIMARY KEY (`id_loaisp`);
 
 --
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_details`
+-- Chỉ mục cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sanpham`
+-- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`id_sp`),
@@ -277,57 +272,57 @@ ALTER TABLE `sanpham`
   ADD KEY `loaisp` (`id_loaisp`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `contacts`
+-- AUTO_INCREMENT cho bảng `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `hang_sx`
+-- AUTO_INCREMENT cho bảng `hang_sx`
 --
 ALTER TABLE `hang_sx`
   MODIFY `id_hangsx` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `order_details`
+-- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `sanpham`
+-- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   MODIFY `id_sp` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` tinyint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `sanpham`
+-- Các ràng buộc cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `hangsx` FOREIGN KEY (`id_hangsx`) REFERENCES `hang_sx` (`id_hangsx`),
