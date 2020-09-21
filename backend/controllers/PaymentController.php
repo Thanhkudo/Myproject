@@ -121,6 +121,102 @@ class PaymentController extends Controller{
         require_once 'views/layouts/main.php';
     }
 
+    public function update(){
+        $this->title_page="Update";
+        if (!isset($_GET['id'])||!is_numeric($_GET['id'])){
+            $_SESSION['error']="ID không không hợp lệ !";
+            header('Location:index.php?controller=payment');
+            exit();
+        }
+        $id = $_GET['id'];
+        $order_model=new Order();
+        $select_update = $order_model->select_one($id);
+
+        if (isset($_POST['submit'])){
+            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $address = $_POST['address'];
+            $note = $_POST['note'];
+            $price = $_POST['price'];
+            $payment = $_POST['payment'];
+            $shipping = $_POST['shipping'];
+            $status = $_POST['status'];
+            //validate
+            if (empty($fullname)){
+                $this->error="Fullname không được để trống !";
+            }elseif (empty($phone) || !is_numeric($phone)){
+                $this->error="Lỗi định dạng Phone !";
+            }elseif (empty($email)|| !filter_var($email,FILTER_VALIDATE_EMAIL)){
+                $this->error="Lỗi định dạng email !";
+            }elseif (empty($address)){
+                $this->error="Địa chỉ không được để trống !";
+            }
+
+            if (empty($this->error)){
+                $order_model->fullname=$fullname;
+                $order_model->email=$email;
+                $order_model->phone=$phone;
+                $order_model->address=$address;
+                $order_model->note=$note;
+                $order_model->price=$price;
+                $order_model->payment=$payment;
+                $order_model->shipping=$shipping;
+                $order_model->status=$status;
+                $is_insert=$order_model->update($id);
+                if ($is_insert){
+                    $_SESSION['success']="Update thành công";
+                    header('Location: index.php?controller=payment&action=order');
+                    exit();
+                } else{
+                    $_SESSION['error']="Update thất bại";
+                }
+
+            }
+        }
+
+        $this->content = $this->render('views/payment/update.php',['select_update'=>$select_update]);
+        require_once 'views/layouts/main.php';
+
+    }
+
+    public function detail(){
+        $this->title_page="Detail";
+        if (!isset($_GET['id'])||!is_numeric($_GET['id'])){
+            $_SESSION['error']="ID không không hợp lệ !";
+            header('Location:index.php?controller=payment');
+            exit();
+        }
+        $id = $_GET['id'];
+        $order_detail_model=new OrderDetail();
+        $select_detail = $order_detail_model->select_all($id);
+        $this->content = $this->render('views/payment/detail.php',['select_detail'=>$select_detail]);
+        require_once 'views/layouts/main.php';
+
+    }
+
+    public function delete(){
+        if (!isset($_GET['id'])||!is_numeric($_GET['id'])){
+            $_SESSION['error']="ID không không hợp lệ !";
+            header('Location:index.php?controller=payment&action=order');
+            exit();
+        }
+        $id = $_GET['id'];
+        $order_model=new Order();
+        $delete=$order_model->delete($id);
+        if ($delete){
+            $_SESSION['success']="Xóa dữ liệu thành công !";
+            header('Location:index.php?controller=payment&action=order');
+            exit();
+        }
+        else{
+            $this->error="Xóa dữ liệu thất bại!";
+
+        }
+
+
+    }
+
     public function online() {
         $this->content = $this->render('configs/nganluong/index.php');
         require_once 'views/layouts/main.php';

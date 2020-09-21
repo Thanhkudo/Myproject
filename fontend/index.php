@@ -30,7 +30,7 @@ else{
 ?>
 <?php
 echo'<pre>';
-print_r($_SESSION['user_main']);
+//print_r($_SESSION['user_main']);
 echo'</pre>';
 
 ?>

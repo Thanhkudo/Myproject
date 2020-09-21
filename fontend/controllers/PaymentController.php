@@ -57,6 +57,7 @@ class PaymentController extends Controller{
                     $order_detail_model->id_order = $id_order;
                     $order_detail_model->id_sp= $id_sp;
                     $order_detail_model->name_sp = $cart['name'];
+                    $order_detail_model->avatar = $cart['avatar'];
                     $order_detail_model->quantity = $cart['quantity'];
                     $is_insert = $order_detail_model->insert();
                     var_dump($is_insert);
@@ -88,6 +89,53 @@ class PaymentController extends Controller{
         }
         $this->content=$this->render('views/payment/index.php');
         require_once 'views/layouts/main.php';
+    }
+
+    public function order(){
+        $id='';
+        if (isset($_SESSION['user_main'])){
+            $id=$_SESSION['user_main']['id'];
+        }
+        $order_model= new Order();
+        $select = $order_model->select_all($id);
+        $this->content=$this->render('views/payment/order.php',['select'=>$select]);
+        require_once 'views/layouts/main.php';
+    }
+
+    public function detail(){
+        if (!isset($_GET['id'])||!is_numeric($_GET['id'])){
+            $_SESSION['error']="ID không không hợp lệ !";
+            header('Location:index.php?controller=payment');
+            exit();
+        }
+        $id = $_GET['id'];
+        $order_detail_model=new OrderDetail();
+        $select_detail = $order_detail_model->select_all($id);
+        $this->content = $this->render('views/payment/detail.php',['select_detail'=>$select_detail]);
+        require_once 'views/layouts/main.php';
+
+    }
+
+    public function delete(){
+        if (!isset($_GET['id'])||!is_numeric($_GET['id'])){
+            $_SESSION['error']="ID không không hợp lệ !";
+            header('Location:index.php?controller=payment&action=order');
+            exit();
+        }
+        $id = $_GET['id'];
+        $order_model=new Order();
+        $delete=$order_model->delete($id);
+        if ($delete){
+            $_SESSION['success']="Xóa dữ liệu thành công !";
+            header('Location:index.php?controller=payment&action=order');
+            exit();
+        }
+        else{
+            $this->error="Xóa dữ liệu thất bại!";
+
+        }
+
+
     }
 
     public function online() {

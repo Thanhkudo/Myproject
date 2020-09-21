@@ -34,4 +34,17 @@ class Order extends Model {
         $order_id = $this->conn->lastInsertId();
     return $order_id;
     }
+
+    public function select_all($id){
+        $select = $this->conn->prepare("SELECT * FROM orders WHERE id_user = $id ");
+        $select ->execute();
+        $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
+        return $is_select;
+
+    }
+
+    public function delete($id){
+        $delete = $this->conn->prepare("DELETE FROM orders WHERE id=$id");
+        return  $delete ->execute();
+    }
 }

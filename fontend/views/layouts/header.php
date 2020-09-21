@@ -5,7 +5,7 @@
                 <li class="dorpdown"><a href="#"><span class="glyphicon glyphicon-gift"></span>Khuyến mãi</a></li>
                 <li class="dorpdown"><a href="?controller=cart&action=index"><span class="glyphicon glyphicon-shopping-cart"></span>Giỏ hàng</a></li>
                 <span class="ajax-message"></span>
-                <li class="dorpdown"><a href=""><span class="glyphicon glyphicon-shopping-cart"></span>Kiểm tra đơn hàng</a></li>
+                <li class="dorpdown"><a href="?controller=payment&action=order"><span class="glyphicon glyphicon-shopping-cart"></span>Kiểm tra đơn hàng</a></li>
                 <li class="dorpdown"><a href="?controller=contact&action=contact"><span class="glyphicon glyphicon-phone-alt"></span>Hỗ trợ khách hàng</a></li>
                 <?php
                 if(!isset($_SESSION["user_main"])){

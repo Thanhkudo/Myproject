@@ -42,6 +42,7 @@ class Order extends Model {
         $order_id = $this->conn->lastInsertId();
     return $order_id;
     }
+
     public function select_allpagination($params=[]){
         $limit = $params['limit'];
         $page =  $params['page'];
@@ -51,10 +52,37 @@ class Order extends Model {
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;
     }
+
+    public function select_one($id){
+        $select = $this->conn->prepare("SELECT * FROM orders WHERE id=$id");
+        $select ->execute();
+        $is_select = $select->fetch(PDO::FETCH_ASSOC);
+        return $is_select;
+
+    }
+
+    public function update($id){
+        $update =$this->conn->prepare("UPDATE orders SET fullname=:fullname, phone=:phone, address=:address, email=:email, note=:note, price=:price, payment=:payment, shipping=:shipping, status=:status WHERE id = $id");
+        $arr_update=[
+            ':fullname'=>$this->fullname,
+            ':phone'=>$this->phone,
+            ':address'=>$this->address,
+            ':email'=>$this->email,
+            ':note'=>$this->note,
+            ':price'=>$this->price,
+            ':payment'=>$this->payment,
+            ':shipping'=>$this->shipping,
+            ':status'=>$this->status,
+        ];
+        return $update->execute($arr_update);
+
+    }
+
     public function delete($id){
         $delete = $this->conn->prepare("DELETE FROM orders WHERE id=$id");
         return  $delete ->execute();
     }
+
     public function getCount(){
         $select = $this->conn->prepare("SELECT COUNT(id) FROM orders WHERE TRUE $this->search");
         $select ->execute();
