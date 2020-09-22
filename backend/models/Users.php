@@ -87,7 +87,7 @@ class Users extends Model {
         $limit = $params['limit'];
         $page =  $params['page'];
         $start = ($page - 1) * $limit;
-        $select = $this->conn->prepare("SELECT * FROM users WHERE TRUE $this->search LIMIT $start, $limit" );
+        $select = $this->conn->prepare("SELECT * FROM users WHERE TRUE $this->search ORDER BY id DESC LIMIT $start, $limit" );
         $select ->execute();
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;

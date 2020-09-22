@@ -43,9 +43,5 @@
             <?php echo $pagination ?>
         </nav>
     </div>
-    <?php
-    echo "<pre>";
-    print_r($select_ph);
-    echo "</pre>";
-    ?>
+
 </div>

@@ -23,7 +23,7 @@ class OrderDetail extends Model {
     }
 
     public function select_all($id){
-        $select = $this->conn->prepare("SELECT * FROM order_details WHERE id_order = $id");
+        $select = $this->conn->prepare("SELECT * FROM order_details WHERE id_order = $id ORDER BY id DESC ");
         $select ->execute();
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;

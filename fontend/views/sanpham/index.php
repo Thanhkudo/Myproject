@@ -103,12 +103,9 @@
                             <p style="color: red;"><?php echo $select['status']?"Còn hàng":"Tạm thời hết hàng"; ?></p>
                         </div>
 
-                        <div class="button ng-scope">
+                        <div class="button ng-scope text-center">
                             <a href="?controller=cart&action=add&id=<?php echo $select["id_sp"]; ?>" class="btn btn-primary">
                                 <i class="glyphicon glyphicon-shopping-cart"></i>Thêm giỏ hàng
-                            </a>
-                            <a href="index.php?view=thanhtoan" class="btn btn-primary">
-                                <i class="glyphicon glyphicon-ok"></i>Mua ngay
                             </a>
                         </div>
                         <div class="call">

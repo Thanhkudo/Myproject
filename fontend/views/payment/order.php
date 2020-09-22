@@ -30,14 +30,16 @@
                         <td><?php echo $val['email']?></td>
                         <td><?php echo $val['address']?></td>
                         <td><?php echo $val['note']?></td>
-                        <td><?php echo ($val['status']==0)? 'Chờ thanh toán':'Đã xong' ?></td>
+                        <td><?php echo ($val['status']==0)? 'Đang giao hàng':'Đã xong' ?></td>
                         <td class="text-center">
                             <a href="?controller=payment&action=detail&id=<?php echo $val['id']?>">
                                 <i class="fa fa-eye"></i>
                             </a>
+                            <?php if ($val['status']==1):?>
                             <a href="?controller=payment&action=delete&id=<?php echo $val['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa !')">
                                 <i class="fa fa-times"></i>
                             </a>
+                            <?php endif;?>
                         </td>
                     </tr>
                     <?php endforeach;?>

@@ -36,7 +36,7 @@ class Order extends Model {
     }
 
     public function select_all($id){
-        $select = $this->conn->prepare("SELECT * FROM orders WHERE id_user = $id ");
+        $select = $this->conn->prepare("SELECT * FROM orders WHERE id_user = $id ORDER BY id DESC ");
         $select ->execute();
         $is_select = $select->fetchAll(PDO::FETCH_ASSOC);
         return $is_select;

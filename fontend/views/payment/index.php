@@ -1,8 +1,3 @@
-<?php
-    echo "<pre>";
-    print_r($_POST);
-echo "</pre>";
-?>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
